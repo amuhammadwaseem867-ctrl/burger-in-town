@@ -1,0 +1,436 @@
+.info-section {
+  width: 100%;
+  padding: 120px 0;
+  background: #0b0b0b;
+  border-bottom: 1px solid #222;
+  overflow: hidden;
+}
+
+.info-container {
+  width: min(1180px, 90%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+
+  gap: 100px;
+}
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.info-about {
+  max-width: 700px;
+}
+
+.info-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #f04424;
+
+  font-family: var(--font-inter), sans-serif;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+.info-kicker::before {
+  content: "";
+
+  width: 24px;
+  height: 1px;
+
+  background: #f04424;
+}
+
+.info-about h2 {
+  margin: 20px 0 30px;
+
+  color: #fff;
+
+  font-family: var(--font-barlow), sans-serif;
+
+  font-size: clamp(65px, 7vw, 105px);
+
+  font-weight: 900;
+
+  line-height: 0.78;
+
+  letter-spacing: -4px;
+
+  text-transform: uppercase;
+}
+
+.info-about h2 span {
+  display: block;
+
+  color: #f04424;
+}
+
+.info-about > p {
+  max-width: 570px;
+
+  margin: 0 0 32px;
+
+  color: #777;
+
+  font-family: var(--font-inter), sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 500;
+
+  line-height: 1.9;
+}
+
+
+/* =========================================
+   MENU LINK
+========================================= */
+
+.info-menu-link {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 16px;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-family: var(--font-inter), sans-serif;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+
+  transition: color 0.25s ease;
+}
+
+.info-menu-link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -7px;
+
+  width: 0;
+  height: 1px;
+
+  background: #f04424;
+
+  transition: width 0.3s ease;
+}
+
+.info-menu-link:hover {
+  color: #f04424;
+}
+
+.info-menu-link:hover::after {
+  width: 100%;
+}
+
+.info-menu-link span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  border: 1px solid #333;
+
+  color: #f04424;
+
+  font-size: 16px;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.info-menu-link:hover span {
+  transform: translate(4px, -4px);
+
+  background: #f04424;
+
+  border-color: #f04424;
+
+  color: #0b0b0b;
+}
+
+
+/* =========================================
+   DETAILS
+========================================= */
+
+.info-details {
+  display: flex;
+  flex-direction: column;
+
+  border-top: 1px solid #292929;
+}
+
+.info-block {
+  padding: 28px 0;
+
+  border-bottom: 1px solid #292929;
+}
+
+.info-block > span {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: #555;
+
+  font-family: var(--font-inter), sans-serif;
+
+  font-size: 7px;
+  font-weight: 900;
+
+  letter-spacing: 1.7px;
+
+  text-transform: uppercase;
+}
+
+.info-block h3 {
+  margin: 0;
+
+  color: #fff;
+
+  font-family: var(--font-barlow), sans-serif;
+
+  font-size: 36px;
+  font-weight: 900;
+
+  line-height: 0.9;
+
+  letter-spacing: -1px;
+
+  text-transform: uppercase;
+}
+
+.info-block > p {
+  max-width: 370px;
+
+  margin: 14px 0;
+
+  color: #666;
+
+  font-family: var(--font-inter), sans-serif;
+
+  font-size: 10px;
+
+  line-height: 1.7;
+}
+
+.info-block > a {
+  display: inline-block;
+
+  color: #f04424;
+
+  text-decoration: none;
+
+  font-family: var(--font-inter), sans-serif;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  transition: opacity 0.2s ease;
+}
+
+.info-block > a:hover {
+  opacity: 0.6;
+}
+
+
+/* =========================================
+   HOURS
+========================================= */
+
+.hours-list {
+  margin-top: 5px;
+}
+
+.hours-row {
+  min-height: 40px;
+
+  padding: 11px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.hours-row:last-child {
+  border-bottom: none;
+}
+
+.hours-row p {
+  margin: 0;
+
+  color: #666;
+
+  font-family: var(--font-inter), sans-serif;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
+}
+
+.hours-row strong {
+  color: #fff;
+
+  font-family: var(--font-inter), sans-serif;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.3px;
+}
+
+
+/* =========================================
+   HIGHLIGHT
+========================================= */
+
+.info-block:last-child {
+  position: relative;
+}
+
+.info-block:last-child::before {
+  content: "";
+
+  position: absolute;
+
+  left: -20px;
+  top: 28px;
+
+  width: 3px;
+  height: 35px;
+
+  background: #f04424;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .info-section {
+    padding: 100px 0;
+  }
+
+  .info-container {
+    grid-template-columns: 1fr;
+
+    gap: 70px;
+  }
+
+  .info-about {
+    max-width: 800px;
+  }
+
+  .info-about h2 {
+    font-size: clamp(65px, 10vw, 100px);
+  }
+
+  .info-details {
+    max-width: 700px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .info-section {
+    padding: 80px 0;
+  }
+
+  .info-container {
+    width: 90%;
+
+    gap: 55px;
+  }
+
+  .info-about h2 {
+    margin-top: 17px;
+
+    font-size: 64px;
+
+    letter-spacing: -2.5px;
+  }
+
+  .info-about > p {
+    font-size: 11px;
+
+    line-height: 1.8;
+  }
+
+  .info-block {
+    padding: 24px 0;
+  }
+
+  .info-block h3 {
+    font-size: 31px;
+  }
+
+  .info-block > p {
+    font-size: 10px;
+  }
+
+  .hours-row {
+    min-height: auto;
+
+    padding: 12px 0;
+
+    align-items: flex-start;
+
+    gap: 8px;
+  }
+
+  .hours-row p,
+  .hours-row strong {
+    font-size: 8px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .info-about h2 {
+    font-size: 56px;
+  }
+
+  .info-block h3 {
+    font-size: 28px;
+  }
+
+  .info-menu-link {
+    font-size: 7px;
+  }
+}
