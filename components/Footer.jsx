@@ -4,9 +4,16 @@ export default function Footer() {
   return (
     <footer className="footer">
 
+      {/* =================================================
+          MAIN FOOTER
+      ================================================= */}
+
       <div className="footer-container">
 
-        {/* BRAND */}
+        {/* =================================================
+            BRAND
+        ================================================= */}
+
         <div className="footer-brand">
 
           <span className="footer-kicker">
@@ -28,7 +35,10 @@ export default function Footer() {
         </div>
 
 
-        {/* EXPLORE */}
+        {/* =================================================
+            EXPLORE
+        ================================================= */}
+
         <div className="footer-column">
 
           <span className="footer-label">
@@ -53,7 +63,10 @@ export default function Footer() {
         </div>
 
 
-        {/* CONTACT */}
+        {/* =================================================
+            CONTACT
+        ================================================= */}
+
         <div className="footer-column">
 
           <span className="footer-label">
@@ -76,7 +89,10 @@ export default function Footer() {
         </div>
 
 
-        {/* SOCIAL */}
+        {/* =================================================
+            SOCIAL
+        ================================================= */}
+
         <div className="footer-column">
 
           <span className="footer-label">
@@ -106,13 +122,31 @@ export default function Footer() {
       </div>
 
 
-      {/* LARGE BRAND LINE */}
+      {/* =================================================
+          LARGE BRAND MARQUEE
+      ================================================= */}
+
       <div className="footer-marquee">
-        <span>BURGER IN TOWN</span>
+
+        <div className="footer-marquee-track">
+
+          <span>
+            BURGER IN TOWN
+          </span>
+
+          <span>
+            BURGER IN TOWN
+          </span>
+
+        </div>
+
       </div>
 
 
-      {/* BOTTOM */}
+      {/* =================================================
+          BOTTOM BAR
+      ================================================= */}
+
       <div className="footer-bottom">
 
         <span>
@@ -123,8 +157,15 @@ export default function Footer() {
           ALL RIGHTS RESERVED
         </span>
 
-        <span>
-          MADE FOR BURGER LOVERS
+        <span className="footer-credit">
+          DESIGNED BY{" "}
+          <a
+            href="https://www.wacreativesolution.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WA CREATIVE SOLUTIONS
+          </a>
         </span>
 
       </div>

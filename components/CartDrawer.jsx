@@ -22,20 +22,23 @@ export default function CartDrawer({
     0
   );
 
-  // Lock page scroll while drawer is open
+  /* =====================================================
+     LOCK PAGE SCROLL
+  ===================================================== */
+
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = isOpen ? "hidden" : "";
 
     return () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
 
-  // Close with Escape key
+
+  /* =====================================================
+     ESCAPE KEY
+  ===================================================== */
+
   useEffect(() => {
     const handleEscape = (event) => {
       if (event.key === "Escape" && isOpen) {
@@ -50,57 +53,97 @@ export default function CartDrawer({
     };
   }, [isOpen, onClose]);
 
+
   return (
     <>
-      {/* Overlay */}
+      {/* =================================================
+          OVERLAY
+      ================================================= */}
+
       <div
         className={`cart-overlay ${isOpen ? "show" : ""}`}
         onClick={onClose}
         aria-hidden="true"
       />
 
-      {/* Drawer */}
+
+      {/* =================================================
+          DRAWER
+      ================================================= */}
+
       <aside
         className={`cart-drawer ${isOpen ? "open" : ""}`}
         aria-hidden={!isOpen}
       >
-        {/* Header */}
+
+        {/* =================================================
+            HEADER
+        ================================================= */}
+
         <header className="cart-header">
+
           <div className="cart-title">
+
             <span className="cart-kicker">
               BURGER IN TOWN
             </span>
 
             <div className="cart-title-row">
-              <h2>YOUR CART</h2>
+
+              <h2>
+                YOUR CART
+              </h2>
 
               {itemCount > 0 && (
                 <span className="cart-total-items">
                   {itemCount}
                 </span>
               )}
+
             </div>
+
           </div>
 
+
           <button
+            type="button"
             className="cart-close"
             onClick={onClose}
             aria-label="Close cart"
           >
-            <span></span>
-            <span></span>
+            <span />
+            <span />
           </button>
+
         </header>
 
-        {/* Content */}
+
+        {/* =================================================
+            CONTENT
+        ================================================= */}
+
         <div className="cart-content">
+
           {cart.length === 0 ? (
+
+            /* =================================================
+                EMPTY CART
+            ================================================= */
+
             <div className="cart-empty">
+
               <div className="empty-icon">
                 <span>+</span>
               </div>
 
-              <h3>Your cart is empty</h3>
+              <span className="empty-kicker">
+                NOTHING HERE YET
+              </span>
+
+              <h3>
+                YOUR CART
+                <span>IS EMPTY.</span>
+              </h3>
 
               <p>
                 Hungry? Pick something delicious from
@@ -108,41 +151,73 @@ export default function CartDrawer({
               </p>
 
               <button
+                type="button"
                 className="browse-menu"
                 onClick={onClose}
               >
-                BROWSE MENU
-                <span>→</span>
+                <span>
+                  BROWSE MENU
+                </span>
+
+                <b>
+                  ↗
+                </b>
               </button>
+
             </div>
+
           ) : (
+
+            /* =================================================
+                CART ITEMS
+            ================================================= */
+
             <div className="cart-list">
-              {cart.map((item) => (
+
+              {cart.map((item, index) => (
+
                 <article
                   className="cart-item"
                   key={item.id}
                 >
-                  {/* Product Image */}
+
+                  {/* IMAGE */}
+
                   <div className="cart-item-image">
+
                     <img
                       src={item.image}
                       alt={item.name}
                     />
+
+                    <span>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+
                   </div>
 
-                  {/* Product Details */}
+
+                  {/* DETAILS */}
+
                   <div className="cart-item-details">
+
                     <div className="cart-item-heading">
+
                       <div>
-                        <h3>{item.name}</h3>
+
+                        <h3>
+                          {item.name}
+                        </h3>
 
                         <span className="cart-item-unit-price">
-                          Rs.{" "}
-                          {item.price.toLocaleString()}
+                          Rs. {item.price.toLocaleString()}
                         </span>
+
                       </div>
 
+
                       <button
+                        type="button"
                         className="remove-item"
                         onClick={() =>
                           onRemove(item.id)
@@ -151,12 +226,20 @@ export default function CartDrawer({
                       >
                         ×
                       </button>
+
                     </div>
 
+
+                    {/* ITEM FOOTER */}
+
                     <div className="cart-item-footer">
-                      {/* Quantity */}
+
+                      {/* QUANTITY */}
+
                       <div className="quantity-control">
+
                         <button
+                          type="button"
                           onClick={() =>
                             onDecrease(item.id)
                           }
@@ -165,9 +248,12 @@ export default function CartDrawer({
                           −
                         </button>
 
-                        <span>{item.quantity}</span>
+                        <span>
+                          {item.quantity}
+                        </span>
 
                         <button
+                          type="button"
                           onClick={() =>
                             onIncrease(item.id)
                           }
@@ -175,55 +261,98 @@ export default function CartDrawer({
                         >
                           +
                         </button>
+
                       </div>
 
-                      {/* Item Total */}
+
+                      {/* TOTAL */}
+
                       <strong className="cart-item-total">
                         Rs.{" "}
                         {(
                           item.price * item.quantity
                         ).toLocaleString()}
                       </strong>
+
                     </div>
+
                   </div>
+
                 </article>
+
               ))}
+
             </div>
+
           )}
+
         </div>
 
-        {/* Footer */}
+
+        {/* =================================================
+            FOOTER
+        ================================================= */}
+
         {cart.length > 0 && (
+
           <footer className="cart-footer">
+
             <div className="cart-summary">
+
               <div className="summary-row">
-                <span>ITEMS</span>
-                <span>{itemCount}</span>
+
+                <span>
+                  ITEMS
+                </span>
+
+                <span>
+                  {itemCount}
+                </span>
+
               </div>
 
+
               <div className="summary-row subtotal-row">
-                <span>SUBTOTAL</span>
+
+                <span>
+                  SUBTOTAL
+                </span>
 
                 <strong>
                   Rs. {subtotal.toLocaleString()}
                 </strong>
+
               </div>
+
             </div>
 
+
             <p className="cart-delivery-note">
-              Delivery charges may apply based on your
-              location.
+              Delivery charges may apply based on
+              your location.
             </p>
 
+
             <button
+              type="button"
               className="checkout-button"
               onClick={onCheckout}
             >
-              <span>CHECKOUT</span>
-              <span className="checkout-arrow">→</span>
+
+              <span>
+                CHECKOUT
+              </span>
+
+              <b>
+                ↗
+              </b>
+
             </button>
+
           </footer>
+
         )}
+
       </aside>
     </>
   );

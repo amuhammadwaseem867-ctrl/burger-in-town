@@ -2,23 +2,35 @@
 
 import { useState } from "react";
 
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Menu from "@/components/Menu";
-import Deals from "@/components/Deals";
-import Info from "@/components/Info";
-import Footer from "@/components/Footer";
-import CartDrawer from "@/components/CartDrawer";
-import Checkout from "@/components/Checkout";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import Menu from "../components/Menu";
+import Deals from "../components/Deals";
+import Info from "../components/Info";
+import Footer from "../components/Footer";
+
+import CartDrawer from "../components/CartDrawer";
+import Checkout from "../components/Checkout";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 export default function Home() {
-  const [cart, setCart] = useState([]);
-  const [cartOpen, setCartOpen] = useState(false);
-  const [checkoutOpen, setCheckoutOpen] = useState(false);
+  /* =====================================================
+     CART
+  ===================================================== */
 
-  // ADD ITEM TO CART
-  const addToCart = (item) => {
+  const [cart, setCart] = useState([]);
+
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const [isCheckoutOpen, setIsCheckoutOpen] =
+    useState(false);
+
+
+  /* =====================================================
+     ADD TO CART
+  ===================================================== */
+
+  const handleAddToCart = (item) => {
     setCart((currentCart) => {
       const existingItem = currentCart.find(
         (cartItem) => cartItem.id === item.id
@@ -44,11 +56,15 @@ export default function Home() {
       ];
     });
 
-    setCartOpen(true);
+    setIsCartOpen(true);
   };
 
-  // INCREASE QUANTITY
-  const increaseQuantity = (id) => {
+
+  /* =====================================================
+     INCREASE QUANTITY
+  ===================================================== */
+
+  const handleIncrease = (id) => {
     setCart((currentCart) =>
       currentCart.map((item) =>
         item.id === id
@@ -61,8 +77,12 @@ export default function Home() {
     );
   };
 
-  // DECREASE QUANTITY
-  const decreaseQuantity = (id) => {
+
+  /* =====================================================
+     DECREASE QUANTITY
+  ===================================================== */
+
+  const handleDecrease = (id) => {
     setCart((currentCart) =>
       currentCart
         .map((item) =>
@@ -77,75 +97,140 @@ export default function Home() {
     );
   };
 
-  // REMOVE ITEM
-  const removeFromCart = (id) => {
+
+  /* =====================================================
+     REMOVE ITEM
+  ===================================================== */
+
+  const handleRemove = (id) => {
     setCart((currentCart) =>
-      currentCart.filter((item) => item.id !== id)
+      currentCart.filter(
+        (item) => item.id !== id
+      )
     );
   };
 
-  // TOTAL ITEMS IN CART
-  const cartCount = cart.reduce(
-    (total, item) => total + item.quantity,
-    0
-  );
 
-  // OPEN CHECKOUT
-  const openCheckout = () => {
-    if (cart.length === 0) return;
+  /* =====================================================
+     OPEN CART
+  ===================================================== */
 
-    setCartOpen(false);
-    setCheckoutOpen(true);
+  const openCart = () => {
+    setIsCartOpen(true);
   };
 
-  // CLOSE CHECKOUT
+
+  /* =====================================================
+     CLOSE CART
+  ===================================================== */
+
+  const closeCart = () => {
+    setIsCartOpen(false);
+  };
+
+
+  /* =====================================================
+     CHECKOUT
+  ===================================================== */
+
+  const handleCheckout = () => {
+    if (cart.length === 0) {
+      return;
+    }
+
+    setIsCartOpen(false);
+
+    setTimeout(() => {
+      setIsCheckoutOpen(true);
+    }, 250);
+  };
+
+
+  /* =====================================================
+     CLOSE CHECKOUT
+  ===================================================== */
+
   const closeCheckout = () => {
-    setCheckoutOpen(false);
+    setIsCheckoutOpen(false);
   };
+
 
   return (
     <>
-      {/* NAVBAR */}
+      {/* =================================================
+          NAVBAR
+      ================================================= */}
+
       <Navbar
-        cartCount={cartCount}
-        onCartClick={() => setCartOpen(true)}
+        onOrderClick={openCart}
       />
 
-      {/* MAIN WEBSITE */}
+
+      {/* =================================================
+          MAIN CONTENT
+      ================================================= */}
+
       <main>
+
+        {/* HERO */}
+
         <Hero />
 
+
+        {/* MENU */}
+
         <Menu
-          onAddToCart={addToCart}
+          onAddToCart={handleAddToCart}
         />
+
+
+        {/* DEALS */}
 
         <Deals />
 
+
+        {/* ABOUT / INFO */}
+
         <Info />
+
+
+        {/* FOOTER */}
+
+        <Footer />
+
       </main>
 
-      {/* FOOTER */}
-      <Footer />
 
-      {/* CART DRAWER */}
+      {/* =================================================
+          CART DRAWER
+      ================================================= */}
+
       <CartDrawer
         cart={cart}
-        isOpen={cartOpen}
-        onClose={() => setCartOpen(false)}
-        onIncrease={increaseQuantity}
-        onDecrease={decreaseQuantity}
-        onRemove={removeFromCart}
-        onCheckout={openCheckout}
+        isOpen={isCartOpen}
+        onClose={closeCart}
+        onIncrease={handleIncrease}
+        onDecrease={handleDecrease}
+        onRemove={handleRemove}
+        onCheckout={handleCheckout}
       />
 
-      {/* CHECKOUT */}
+
+      {/* =================================================
+          CHECKOUT
+      ================================================= */}
+
       <Checkout
         cart={cart}
-        isOpen={checkoutOpen}
+        isOpen={isCheckoutOpen}
         onClose={closeCheckout}
       />
 
-      {/* WHATSAPP */}
+
+      {/* =================================================
+          WHATSAPP
+      ================================================= */}
+
       <WhatsAppButton />
     </>
   );

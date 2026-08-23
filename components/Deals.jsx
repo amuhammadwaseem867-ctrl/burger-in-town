@@ -4,7 +4,8 @@ const deals = [
   {
     number: "01",
     title: "TOWN DOUBLE",
-    description: "Double smashed beef burger with crispy fries.",
+    description:
+      "Double smashed beef burger with crispy fries.",
     price: "1,099",
     image:
       "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=90",
@@ -12,7 +13,8 @@ const deals = [
   {
     number: "02",
     title: "CHICKEN COMBO",
-    description: "Crispy chicken burger, fries & chilled drink.",
+    description:
+      "Crispy chicken burger, fries & chilled drink.",
     price: "999",
     image:
       "https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=1000&q=90",
@@ -20,7 +22,8 @@ const deals = [
   {
     number: "03",
     title: "TOWN FAMILY",
-    description: "Two burgers, loaded fries & two chilled drinks.",
+    description:
+      "Two burgers, loaded fries & two chilled drinks.",
     price: "1,999",
     image:
       "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=1000&q=90",
@@ -30,23 +33,31 @@ const deals = [
 export default function Deals() {
   return (
     <section className="deals-section" id="deals">
+
       <div className="deals-container">
 
-        {/* HEADER */}
+        {/* =================================================
+            HEADER
+        ================================================= */}
+
         <div className="deals-heading">
 
           <div className="deals-heading-left">
+
             <span className="deals-eyebrow">
               02 / SPECIAL OFFERS
             </span>
 
             <h2>
               TOWN
-              <span> DEALS.</span>
+              <span>DEALS.</span>
             </h2>
+
           </div>
 
+
           <div className="deals-heading-right">
+
             <span className="deals-heading-number">
               SAVE MORE
             </span>
@@ -55,21 +66,27 @@ export default function Deals() {
               Big cravings deserve better deals.
               Grab a combo and make it a proper meal.
             </p>
+
           </div>
 
         </div>
 
 
-        {/* DEALS */}
+        {/* =================================================
+            DEALS GRID
+        ================================================= */}
+
         <div className="deals-grid">
 
           {deals.map((deal) => (
+
             <article
               className="deal-card"
               key={deal.number}
             >
 
               {/* IMAGE */}
+
               <div className="deal-image">
 
                 <img
@@ -92,6 +109,7 @@ export default function Deals() {
 
 
               {/* CONTENT */}
+
               <div className="deal-content">
 
                 <span className="deal-small-label">
@@ -110,6 +128,7 @@ export default function Deals() {
 
 
               {/* BOTTOM */}
+
               <div className="deal-bottom">
 
                 <div className="deal-price-wrap">
@@ -124,26 +143,35 @@ export default function Deals() {
 
                 </div>
 
+
                 <a
                   href="#menu"
                   className="deal-order"
                 >
-                  <span>ORDER</span>
+
+                  <span>
+                    ORDER
+                  </span>
 
                   <b>
                     ↗
                   </b>
+
                 </a>
 
               </div>
 
             </article>
+
           ))}
 
         </div>
 
 
-        {/* FOOTER */}
+        {/* =================================================
+            FOOTER
+        ================================================= */}
+
         <div className="deals-footer">
 
           <span>
@@ -157,6 +185,7 @@ export default function Deals() {
         </div>
 
       </div>
+
     </section>
   );
 }

@@ -1,68 +1,125 @@
+/* =========================================================
+   BURGER IN TOWN
+   INFO / ABOUT
+========================================================= */
+
 .info-section {
+  position: relative;
+
   width: 100%;
-  padding: 120px 0;
-  background: #0b0b0b;
-  border-bottom: 1px solid #222;
+
+  padding: 140px 0;
+
+  background: #080808;
+
+  color: #ffffff;
+
   overflow: hidden;
 }
 
+
+/* =========================================================
+   BACKGROUND DETAIL
+========================================================= */
+
+.info-section::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  right: -300px;
+
+  width: 600px;
+  height: 600px;
+
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+
+  background: rgba(255, 212, 0, 0.025);
+
+  filter: blur(100px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
 .info-container {
-  width: min(1180px, 90%);
+  position: relative;
+
+  z-index: 2;
+
+  width: min(1400px, calc(100% - 80px));
+
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
 
-  gap: 100px;
+  grid-template-columns:
+    minmax(0, 1.2fr)
+    minmax(380px, 0.8fr);
+
+  gap: 110px;
+
+  align-items: start;
 }
 
 
-/* =========================================
-   ABOUT
-========================================= */
-
-.info-about {
-  max-width: 700px;
-}
+/* =========================================================
+   KICKER
+========================================================= */
 
 .info-kicker {
   display: inline-flex;
+
   align-items: center;
-  gap: 10px;
 
-  color: #f04424;
+  gap: 12px;
 
-  font-family: var(--font-inter), sans-serif;
+  margin-bottom: 25px;
 
-  font-size: 8px;
+  color: #FFD400;
+
+  font-size: 10px;
+
   font-weight: 900;
 
-  letter-spacing: 2px;
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
 }
 
 .info-kicker::before {
   content: "";
 
-  width: 24px;
-  height: 1px;
+  width: 32px;
+  height: 2px;
 
-  background: #f04424;
+  background: #FFD400;
 }
 
+
+/* =========================================================
+   MAIN HEADING
+========================================================= */
+
 .info-about h2 {
-  margin: 20px 0 30px;
+  margin: 0;
 
-  color: #fff;
+  max-width: 800px;
 
-  font-family: var(--font-barlow), sans-serif;
+  font-size: clamp(55px, 7vw, 105px);
 
-  font-size: clamp(65px, 7vw, 105px);
+  line-height: 0.86;
+
+  letter-spacing: -0.065em;
 
   font-weight: 900;
-
-  line-height: 0.78;
-
-  letter-spacing: -4px;
 
   text-transform: uppercase;
 }
@@ -70,367 +127,381 @@
 .info-about h2 span {
   display: block;
 
-  color: #f04424;
+  color: #FFD400;
 }
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
 
 .info-about > p {
   max-width: 570px;
 
-  margin: 0 0 32px;
+  margin: 35px 0 35px;
 
-  color: #777;
+  color: rgba(255, 255, 255, 0.58);
 
-  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
 
-  font-size: 12px;
-
-  font-weight: 500;
-
-  line-height: 1.9;
+  line-height: 1.8;
 }
 
 
-/* =========================================
+/* =========================================================
    MENU LINK
-========================================= */
+========================================================= */
 
 .info-menu-link {
-  position: relative;
-
   display: inline-flex;
+
   align-items: center;
 
-  gap: 16px;
+  gap: 18px;
 
-  color: #fff;
+  min-height: 48px;
+
+  padding: 0 18px;
+
+  border: 1px solid rgba(255, 212, 0, 0.5);
+
+  color: #FFD400;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.15em;
 
   text-decoration: none;
 
-  font-family: var(--font-inter), sans-serif;
-
-  font-size: 8px;
-  font-weight: 900;
-
-  letter-spacing: 1.5px;
-
-  transition: color 0.25s ease;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
 }
 
-.info-menu-link::after {
-  content: "";
+.info-menu-link b {
+  font-size: 17px;
 
-  position: absolute;
+  font-weight: 400;
 
-  left: 0;
-  bottom: -7px;
-
-  width: 0;
-  height: 1px;
-
-  background: #f04424;
-
-  transition: width 0.3s ease;
+  line-height: 1;
 }
 
 .info-menu-link:hover {
-  color: #f04424;
-}
+  background: #FFD400;
 
-.info-menu-link:hover::after {
-  width: 100%;
-}
+  border-color: #FFD400;
 
-.info-menu-link span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: #080808;
 
-  width: 34px;
-  height: 34px;
-
-  border: 1px solid #333;
-
-  color: #f04424;
-
-  font-size: 16px;
-
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease,
-    border-color 0.25s ease;
-}
-
-.info-menu-link:hover span {
-  transform: translate(4px, -4px);
-
-  background: #f04424;
-
-  border-color: #f04424;
-
-  color: #0b0b0b;
+  transform: translateY(-3px);
 }
 
 
-/* =========================================
+/* =========================================================
    DETAILS
-========================================= */
+========================================================= */
 
 .info-details {
   display: flex;
+
   flex-direction: column;
 
-  border-top: 1px solid #292929;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
+
+
+/* =========================================================
+   INFO BLOCK
+========================================================= */
 
 .info-block {
-  padding: 28px 0;
+  padding: 30px 0;
 
-  border-bottom: 1px solid #292929;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.info-block > span {
-  display: block;
 
-  margin-bottom: 14px;
+/* =========================================================
+   BLOCK TOP
+========================================================= */
 
-  color: #555;
+.info-block-top {
+  display: flex;
 
-  font-family: var(--font-inter), sans-serif;
+  align-items: center;
 
-  font-size: 7px;
+  justify-content: space-between;
+
+  margin-bottom: 28px;
+}
+
+.info-block-top span {
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 9px;
+
   font-weight: 900;
 
-  letter-spacing: 1.7px;
-
-  text-transform: uppercase;
+  letter-spacing: 0.17em;
 }
+
+.info-block-top i {
+  color: #FFD400;
+
+  font-size: 17px;
+
+  font-style: normal;
+}
+
+
+/* =========================================================
+   LOCATION HEADING
+========================================================= */
 
 .info-block h3 {
   margin: 0;
 
-  color: #fff;
+  color: #ffffff;
 
-  font-family: var(--font-barlow), sans-serif;
+  font-size: 35px;
 
-  font-size: 36px;
+  line-height: 0.95;
+
   font-weight: 900;
 
-  line-height: 0.9;
-
-  letter-spacing: -1px;
-
-  text-transform: uppercase;
+  letter-spacing: -0.045em;
 }
 
+.info-block h3 span {
+  display: block;
+
+  color: #FFD400;
+}
+
+
+/* =========================================================
+   BLOCK DESCRIPTION
+========================================================= */
+
 .info-block > p {
-  max-width: 370px;
+  max-width: 390px;
 
-  margin: 14px 0;
+  margin: 20px 0;
 
-  color: #666;
+  color: rgba(255, 255, 255, 0.48);
 
-  font-family: var(--font-inter), sans-serif;
-
-  font-size: 10px;
+  font-size: 12px;
 
   line-height: 1.7;
 }
 
-.info-block > a {
-  display: inline-block;
 
-  color: #f04424;
+/* =========================================================
+   DIRECTIONS
+========================================================= */
+
+.info-block > a {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  color: #ffffff;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.14em;
 
   text-decoration: none;
 
-  font-family: var(--font-inter), sans-serif;
+  transition: color 0.3s ease;
+}
 
-  font-size: 8px;
-  font-weight: 900;
+.info-block > a span {
+  color: #FFD400;
 
-  letter-spacing: 1px;
+  font-size: 15px;
 
-  transition: opacity 0.2s ease;
+  transition: transform 0.3s ease;
 }
 
 .info-block > a:hover {
-  opacity: 0.6;
+  color: #FFD400;
+}
+
+.info-block > a:hover span {
+  transform: translate(3px, -3px);
 }
 
 
-/* =========================================
+/* =========================================================
    HOURS
-========================================= */
+========================================================= */
 
-.hours-list {
-  margin-top: 5px;
+.hours {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0;
 }
 
 .hours-row {
-  min-height: 40px;
-
-  padding: 11px 0;
-
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
 
-  border-bottom: 1px solid #1e1e1e;
+  gap: 20px;
+
+  padding: 17px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.hours-row:first-child {
+  padding-top: 0;
 }
 
 .hours-row:last-child {
-  border-bottom: none;
+  border-bottom: 0;
+
+  padding-bottom: 0;
 }
 
 .hours-row p {
   margin: 0;
 
-  color: #666;
+  color: rgba(255, 255, 255, 0.4);
 
-  font-family: var(--font-inter), sans-serif;
+  font-size: 9px;
 
-  font-size: 8px;
-  font-weight: 700;
+  font-weight: 900;
 
-  letter-spacing: 0.3px;
+  letter-spacing: 0.12em;
 }
 
 .hours-row strong {
-  color: #fff;
+  color: #ffffff;
 
-  font-family: var(--font-inter), sans-serif;
+  font-size: 11px;
 
-  font-size: 8px;
-  font-weight: 800;
+  font-weight: 700;
 
-  letter-spacing: 0.3px;
+  text-align: right;
 }
 
 
-/* =========================================
-   HIGHLIGHT
-========================================= */
-
-.info-block:last-child {
-  position: relative;
-}
-
-.info-block:last-child::before {
-  content: "";
-
-  position: absolute;
-
-  left: -20px;
-  top: 28px;
-
-  width: 3px;
-  height: 35px;
-
-  background: #f04424;
-}
-
-
-/* =========================================
+/* =========================================================
    TABLET
-========================================= */
+========================================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
+
   .info-section {
-    padding: 100px 0;
+    padding: 110px 0;
   }
 
   .info-container {
-    grid-template-columns: 1fr;
+    width: calc(100% - 48px);
 
-    gap: 70px;
-  }
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(300px, 0.75fr);
 
-  .info-about {
-    max-width: 800px;
+    gap: 60px;
   }
 
   .info-about h2 {
-    font-size: clamp(65px, 10vw, 100px);
-  }
-
-  .info-details {
-    max-width: 700px;
+    font-size: clamp(50px, 8vw, 78px);
   }
 }
 
 
-/* =========================================
+/* =========================================================
    MOBILE
-========================================= */
+========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
+
   .info-section {
-    padding: 80px 0;
+    padding: 90px 0;
   }
 
   .info-container {
-    width: 90%;
+    width: calc(100% - 32px);
 
-    gap: 55px;
+    display: block;
   }
 
+
+  /* ABOUT */
+
   .info-about h2 {
-    margin-top: 17px;
-
-    font-size: 64px;
-
-    letter-spacing: -2.5px;
+    font-size: clamp(48px, 14vw, 68px);
   }
 
   .info-about > p {
-    font-size: 11px;
+    margin-top: 28px;
 
-    line-height: 1.8;
+    font-size: 13px;
+
+    line-height: 1.75;
+  }
+
+
+  /* DETAILS */
+
+  .info-details {
+    margin-top: 75px;
   }
 
   .info-block {
-    padding: 24px 0;
+    padding: 27px 0;
   }
 
   .info-block h3 {
     font-size: 31px;
   }
 
-  .info-block > p {
-    font-size: 10px;
-  }
+
+  /* HOURS */
 
   .hours-row {
-    min-height: auto;
-
-    padding: 12px 0;
-
     align-items: flex-start;
 
-    gap: 8px;
+    flex-direction: column;
+
+    gap: 7px;
   }
 
-  .hours-row p,
   .hours-row strong {
-    font-size: 8px;
+    text-align: left;
+
+    font-size: 11px;
   }
 }
 
 
-/* =========================================
+/* =========================================================
    SMALL MOBILE
-========================================= */
+========================================================= */
 
 @media (max-width: 380px) {
+
   .info-about h2 {
-    font-size: 56px;
+    font-size: 45px;
   }
 
   .info-block h3 {
     font-size: 28px;
-  }
-
-  .info-menu-link {
-    font-size: 7px;
   }
 }

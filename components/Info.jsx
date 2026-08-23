@@ -3,17 +3,21 @@ import "./Info.css";
 export default function Info() {
   return (
     <section className="info-section" id="about">
+
       <div className="info-container">
 
-        {/* About */}
+        {/* =================================================
+            ABOUT
+        ================================================= */}
+
         <div className="info-about">
+
           <span className="info-kicker">
             WELCOME TO THE TOWN
           </span>
 
           <h2>
             BIG FLAVOR.
-            <br />
             <span>REAL BURGERS.</span>
           </h2>
 
@@ -24,22 +28,47 @@ export default function Info() {
             and made to satisfy every craving.
           </p>
 
-          <a href="#menu" className="info-menu-link">
-            EXPLORE MENU
-            <span>→</span>
+          <a
+            href="#menu"
+            className="info-menu-link"
+          >
+            <span>
+              EXPLORE MENU
+            </span>
+
+            <b>
+              ↗
+            </b>
           </a>
+
         </div>
 
-        {/* Location / Hours */}
+
+        {/* =================================================
+            DETAILS
+        ================================================= */}
+
         <div className="info-details">
 
+          {/* LOCATION */}
+
           <div className="info-block">
-            <span>FIND US</span>
+
+            <div className="info-block-top">
+
+              <span>
+                01 / FIND US
+              </span>
+
+              <i>
+                ↗
+              </i>
+
+            </div>
 
             <h3>
               RAWALPINDI
-              <br />
-              ISLAMABAD
+              <span>ISLAMABAD</span>
             </h3>
 
             <p>
@@ -52,27 +81,64 @@ export default function Info() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              GET DIRECTIONS →
+              GET DIRECTIONS
+              <span>↗</span>
             </a>
+
           </div>
 
+
+          {/* HOURS */}
+
           <div className="info-block">
-            <span>OPENING HOURS</span>
 
-            <div className="hours-row">
-              <p>MON — THU</p>
-              <strong>12:00 PM — 12:00 AM</strong>
+            <div className="info-block-top">
+
+              <span>
+                02 / OPENING HOURS
+              </span>
+
+              <i>
+                ◷
+              </i>
+
             </div>
 
-            <div className="hours-row">
-              <p>FRI — SUN</p>
-              <strong>12:00 PM — 01:00 AM</strong>
+            <div className="hours">
+
+              <div className="hours-row">
+
+                <p>
+                  MON — THU
+                </p>
+
+                <strong>
+                  12:00 PM — 12:00 AM
+                </strong>
+
+              </div>
+
+
+              <div className="hours-row">
+
+                <p>
+                  FRI — SUN
+                </p>
+
+                <strong>
+                  12:00 PM — 01:00 AM
+                </strong>
+
+              </div>
+
             </div>
+
           </div>
 
         </div>
 
       </div>
+
     </section>
   );
 }

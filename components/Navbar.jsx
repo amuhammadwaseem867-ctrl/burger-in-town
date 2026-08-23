@@ -1,110 +1,216 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import "./Navbar.css";
 
-export default function Navbar({ cartCount = 0, onCartClick }) {
+export default function Navbar({ onOrderClick }) {
+  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const closeMenu = () => {
     setMenuOpen(false);
   };
 
-  const handleCartClick = () => {
+  const handleOrderClick = () => {
     closeMenu();
-    onCartClick?.();
+
+    if (onOrderClick) {
+      onOrderClick();
+    }
   };
 
   return (
-    <header className="navbar">
-      <div className="navbar-shell">
+    <header
+      className={`navbar ${
+        scrolled ? "navbar-scrolled" : ""
+      }`}
+    >
+      <div className="navbar-container">
 
-        {/* LEFT NAV */}
-        <nav className="nav-group nav-left">
-          <Link href="#menu" onClick={closeMenu}>
-            MENU
-          </Link>
+        {/* =================================================
+            LOGO
+        ================================================= */}
 
-          <Link href="#deals" onClick={closeMenu}>
-            DEALS
-          </Link>
-        </nav>
+        <a
+          href="/"
+          className="navbar-logo"
+          onClick={closeMenu}
+        >
+          <span className="logo-main">
+            BURGER
+          </span>
 
-        {/* CENTER BRAND */}
-        <Link href="/" className="navbar-brand">
-          <span className="brand-top">BURGER</span>
-          <span className="brand-main">IN TOWN</span>
-        </Link>
+          <span className="logo-sub">
+            IN TOWN
+          </span>
+        </a>
 
-        {/* RIGHT NAV */}
-        <nav className="nav-group nav-right">
-          <Link href="#locations" onClick={closeMenu}>
-            LOCATIONS
-          </Link>
 
-          <button
-            type="button"
-            className="cart-button"
-            onClick={handleCartClick}
-            aria-label="Open cart"
+        {/* =================================================
+            DESKTOP NAVIGATION
+        ================================================= */}
+
+        <nav className="navbar-links">
+
+          <a
+            href="#home"
+            onClick={closeMenu}
           >
-            <span>CART</span>
+            HOME
+          </a>
 
-            {cartCount > 0 && (
-              <span className="cart-count">
-                {cartCount}
-              </span>
-            )}
-          </button>
+          <a
+            href="#menu"
+            onClick={closeMenu}
+          >
+            MENU
+          </a>
+
+          <a
+            href="#deals"
+            onClick={closeMenu}
+          >
+            DEALS
+          </a>
+
+          <a
+            href="#about"
+            onClick={closeMenu}
+          >
+            ABOUT
+          </a>
+
         </nav>
 
-        {/* MOBILE TOGGLE */}
+
+        {/* =================================================
+            DESKTOP ORDER BUTTON
+        ================================================= */}
+
         <button
           type="button"
-          className={`mobile-toggle ${
+          className="navbar-order"
+          onClick={handleOrderClick}
+        >
+          <span>
+            ORDER NOW
+          </span>
+
+          <b>
+            ↗
+          </b>
+        </button>
+
+
+        {/* =================================================
+            MOBILE TOGGLE
+        ================================================= */}
+
+        <button
+          type="button"
+          className={`navbar-toggle ${
             menuOpen ? "active" : ""
           }`}
-          onClick={() => setMenuOpen((prev) => !prev)}
+          onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle navigation"
           aria-expanded={menuOpen}
         >
           <span />
           <span />
         </button>
+
       </div>
 
-      {/* MOBILE NAV */}
+
+      {/* =================================================
+          MOBILE MENU
+      ================================================= */}
+
       <div
-        className={`mobile-nav ${
+        className={`mobile-menu ${
           menuOpen ? "open" : ""
         }`}
       >
-        <Link href="#menu" onClick={closeMenu}>
-          MENU
-        </Link>
 
-        <Link href="#deals" onClick={closeMenu}>
-          DEALS
-        </Link>
+        <div className="mobile-menu-inner">
 
-        <Link href="#locations" onClick={closeMenu}>
-          LOCATIONS
-        </Link>
+          <span className="mobile-menu-kicker">
+            BURGER IN TOWN
+          </span>
 
-        <button
-          type="button"
-          onClick={handleCartClick}
-        >
-          <span>CART</span>
 
-          {cartCount > 0 && (
-            <span className="mobile-count">
-              {cartCount}
+          <a
+            href="#home"
+            onClick={closeMenu}
+          >
+            <span>01</span>
+            HOME
+            <b>↗</b>
+          </a>
+
+
+          <a
+            href="#menu"
+            onClick={closeMenu}
+          >
+            <span>02</span>
+            MENU
+            <b>↗</b>
+          </a>
+
+
+          <a
+            href="#deals"
+            onClick={closeMenu}
+          >
+            <span>03</span>
+            DEALS
+            <b>↗</b>
+          </a>
+
+
+          <a
+            href="#about"
+            onClick={closeMenu}
+          >
+            <span>04</span>
+            ABOUT
+            <b>↗</b>
+          </a>
+
+
+          {/* MOBILE ORDER */}
+
+          <button
+            type="button"
+            className="mobile-order"
+            onClick={handleOrderClick}
+          >
+            <span>
+              ORDER NOW
             </span>
-          )}
-        </button>
+
+            <b>
+              ↗
+            </b>
+          </button>
+
+        </div>
+
       </div>
+
     </header>
   );
 }

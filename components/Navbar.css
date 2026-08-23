@@ -1,451 +1,464 @@
-/* =========================================
+/* =========================================================
    BURGER IN TOWN
    PREMIUM NAVBAR
-========================================= */
+========================================================= */
 
 .navbar {
-  position: sticky;
+  position: fixed;
+
   top: 0;
+  left: 0;
+  right: 0;
+
   z-index: 1000;
 
   width: 100%;
 
-  background: rgba(8, 8, 8, 0.96);
+  background: transparent;
+
+  border-bottom: 1px solid transparent;
+
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    backdrop-filter 0.35s ease;
+}
+
+
+/* =========================================================
+   SCROLLED STATE
+========================================================= */
+
+.navbar-scrolled {
+  background: rgba(8, 8, 8, 0.88);
+
+  border-bottom-color: rgba(255, 255, 255, 0.08);
 
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.navbar-shell {
-  position: relative;
 
-  width: min(1120px, 92%);
-  height: 78px;
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.navbar-container {
+  width: min(1400px, calc(100% - 80px));
+
+  height: 82px;
 
   margin: 0 auto;
 
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-}
-
-
-/* =========================================
-   NAV GROUPS
-========================================= */
-
-.nav-group {
   display: flex;
   align-items: center;
-
-  gap: 28px;
-}
-
-.nav-left {
-  justify-content: flex-end;
-  padding-right: 22px;
-}
-
-.nav-right {
-  justify-content: flex-start;
-  padding-left: 22px;
-}
-
-.nav-group a,
-.cart-button {
-  position: relative;
-
-  padding: 9px 0;
-
-  background: transparent;
-  border: 0;
-
-  color: #f4f4f4;
-
-  text-decoration: none;
-
-  font-family: var(--font-inter), sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-
-  letter-spacing: 1.4px;
-
-  cursor: pointer;
-
-  transition:
-    color 0.25s ease,
-    transform 0.25s ease;
-}
-
-.nav-group a::after,
-.cart-button::after {
-  content: "";
-
-  position: absolute;
-
-  left: 50%;
-  bottom: 2px;
-
-  width: 0;
-  height: 1px;
-
-  transform: translateX(-50%);
-
-  background: #f04424;
-
-  transition: width 0.25s ease;
-}
-
-.nav-group a:hover,
-.cart-button:hover {
-  color: #f04424;
-  transform: translateY(-1px);
-}
-
-.nav-group a:hover::after,
-.cart-button:hover::after {
-  width: 100%;
+  justify-content: space-between;
 }
 
 
-/* =========================================
-   CENTER BRAND
-========================================= */
+/* =========================================================
+   LOGO
+========================================================= */
 
-.navbar-brand {
-  position: relative;
-  z-index: 5;
-
-  width: 170px;
-
-  padding: 15px 20px 13px;
-
+.navbar-logo {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  background: #080808;
-
-  color: #fff;
 
   text-decoration: none;
 
-  border-left: 1px solid rgba(255, 255, 255, 0.08);
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  line-height: 0.8;
 
-  transform: translateY(13px);
-
-  transition: transform 0.25s ease;
+  transition: transform 0.3s ease;
 }
 
-.navbar-brand:hover {
-  transform: translateY(10px);
+.navbar-logo:hover {
+  transform: translateY(-2px);
 }
 
-
-/* =========================================
-   SUBTLE BUMP
-========================================= */
-
-.navbar-brand::after {
-  content: "";
-
-  position: absolute;
-
-  left: 50%;
-  bottom: -6px;
-
-  width: 34px;
-  height: 7px;
-
-  transform: translateX(-50%);
-
-  background: #080808;
-
-  border-left: 1px solid rgba(255, 255, 255, 0.08);
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-
-  border-radius: 0 0 18px 18px;
-}
-
-
-/* =========================================
-   BRAND TYPOGRAPHY
-========================================= */
-
-.brand-top {
+.logo-main {
   color: #ffffff;
 
-  font-family: var(--font-inter), sans-serif;
+  font-size: 20px;
 
-  font-size: 7px;
-  font-weight: 800;
+  font-weight: 950;
 
-  letter-spacing: 3px;
-
-  line-height: 1;
+  letter-spacing: -0.06em;
 }
 
-.brand-main {
-  margin-top: 5px;
+.logo-sub {
+  margin-top: 6px;
 
-  color: #f04424;
+  color: #FFD400;
 
-  font-family: var(--font-barlow), sans-serif;
+  font-size: 9px;
 
-  font-size: 24px;
   font-weight: 900;
 
-  letter-spacing: -0.7px;
-
-  line-height: 0.85;
+  letter-spacing: 0.32em;
 }
 
 
-/* =========================================
-   CART
-========================================= */
+/* =========================================================
+   DESKTOP LINKS
+========================================================= */
 
-.cart-button {
-  display: inline-flex;
+.navbar-links {
+  display: flex;
   align-items: center;
 
-  gap: 8px;
+  gap: 42px;
+
+  margin-left: auto;
+  margin-right: 45px;
 }
 
-.cart-count {
-  min-width: 18px;
-  height: 18px;
+.navbar-links a {
+  position: relative;
 
-  padding: 0 5px;
+  color: rgba(255, 255, 255, 0.72);
 
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 10px;
 
-  background: #f04424;
-  color: #ffffff;
-
-  border-radius: 50%;
-
-  font-family: var(--font-inter), sans-serif;
-  font-size: 8px;
   font-weight: 800;
 
-  letter-spacing: 0;
+  letter-spacing: 0.16em;
 
-  box-shadow: 0 0 14px rgba(240, 68, 36, 0.3);
+  text-transform: uppercase;
+
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease;
 }
 
-
-/* =========================================
-   MOBILE TOGGLE
-========================================= */
-
-.mobile-toggle {
-  display: none;
+.navbar-links a::after {
+  content: "";
 
   position: absolute;
 
   left: 0;
+  bottom: -8px;
 
-  width: 38px;
-  height: 38px;
+  width: 0;
+  height: 2px;
+
+  background: #FFD400;
+
+  transition: width 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: #ffffff;
+}
+
+.navbar-links a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   ORDER BUTTON
+========================================================= */
+
+.navbar-order {
+  min-height: 44px;
+
+  padding: 0 19px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  border: 1px solid #FFD400;
+
+  border-radius: 999px;
+
+  background: #FFD400;
+
+  color: #080808;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.navbar-order:hover {
+  background: #ffffff;
+
+  border-color: #ffffff;
+
+  transform: translateY(-2px);
+}
+
+.navbar-order span {
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   MOBILE TOGGLE
+========================================================= */
+
+.navbar-toggle {
+  display: none;
+
+  width: 42px;
+  height: 42px;
 
   padding: 0;
 
-  background: transparent;
-  border: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.25);
 
   cursor: pointer;
+
+  position: relative;
 }
 
-.mobile-toggle span {
-  display: block;
+.navbar-toggle span {
+  position: absolute;
 
-  width: 21px;
-  height: 1px;
+  left: 12px;
 
-  margin: 5px auto;
+  width: 17px;
+  height: 2px;
 
   background: #ffffff;
 
   transition:
     transform 0.3s ease,
-    opacity 0.3s ease;
+    top 0.3s ease;
 }
 
-.mobile-toggle.active span:first-child {
-  transform: translateY(3px) rotate(45deg);
+.navbar-toggle span:first-child {
+  top: 16px;
 }
 
-.mobile-toggle.active span:last-child {
-  transform: translateY(-3px) rotate(-45deg);
+.navbar-toggle span:last-child {
+  top: 23px;
 }
 
 
-/* =========================================
-   MOBILE NAV
-========================================= */
+/* =========================================================
+   TOGGLE ACTIVE
+========================================================= */
 
-.mobile-nav {
+.navbar-toggle.active span:first-child {
+  top: 20px;
+
+  transform: rotate(45deg);
+}
+
+.navbar-toggle.active span:last-child {
+  top: 20px;
+
+  transform: rotate(-45deg);
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu {
   display: none;
 }
 
 
-/* =========================================
+/* =========================================================
    TABLET
-========================================= */
+========================================================= */
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
 
-  .navbar-shell {
-    width: 92%;
-    height: 68px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .navbar-container {
+    width: calc(100% - 48px);
   }
 
-  .nav-group {
-    display: none;
+  .navbar-links {
+    gap: 25px;
+
+    margin-right: 25px;
   }
 
-  .navbar-brand {
-    width: 145px;
-
-    padding: 12px 16px 11px;
-
-    transform: translateY(9px);
+  .navbar-links a {
+    font-size: 9px;
   }
 
-  .navbar-brand:hover {
-    transform: translateY(7px);
-  }
-
-  .brand-main {
-    font-size: 20px;
-  }
-
-  .mobile-toggle {
-    display: block;
-  }
-
-
-  /* MOBILE DROPDOWN */
-
-  .mobile-nav {
-    display: flex;
-    flex-direction: column;
-
-    width: 100%;
-
-    max-height: 0;
-
-    padding: 0 7%;
-
-    overflow: hidden;
-
-    background: #080808;
-
-    transition:
-      max-height 0.35s ease,
-      padding 0.35s ease;
-  }
-
-  .mobile-nav.open {
-    max-height: 320px;
-
-    padding-top: 8px;
-    padding-bottom: 16px;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.07);
-  }
-
-  .mobile-nav a,
-  .mobile-nav button {
-    width: 100%;
-
-    padding: 16px 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    background: transparent;
-    border: 0;
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-
-    color: #ffffff;
-
-    text-decoration: none;
-
-    font-family: var(--font-inter), sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-
-    letter-spacing: 1.4px;
-
-    cursor: pointer;
-
-    text-align: left;
-  }
-
-  .mobile-nav a:hover,
-  .mobile-nav button:hover {
-    color: #f04424;
-  }
-
-  .mobile-count {
-    width: 20px;
-    height: 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #f04424;
-    color: #ffffff;
-
-    border-radius: 50%;
-
-    font-size: 8px;
+  .navbar-order {
+    padding: 0 15px;
   }
 }
 
 
-/* =========================================
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .navbar-container {
+    width: calc(100% - 32px);
+
+    height: 72px;
+  }
+
+
+  .navbar-links,
+  .navbar-order {
+    display: none;
+  }
+
+
+  .navbar-toggle {
+    display: block;
+  }
+
+
+  /* Mobile Dropdown */
+
+  .mobile-menu {
+    position: absolute;
+
+    top: 72px;
+    left: 16px;
+    right: 16px;
+
+    padding: 12px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+
+    background: rgba(8, 8, 8, 0.96);
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-10px);
+
+    pointer-events: none;
+
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0.3s ease;
+  }
+
+
+  .mobile-menu.open {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+  }
+
+
+  .mobile-menu a {
+    width: 100%;
+
+    padding: 15px 16px;
+
+    border-radius: 11px;
+
+    color: rgba(255, 255, 255, 0.75);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.14em;
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    transition:
+      background 0.25s ease,
+      color 0.25s ease;
+  }
+
+
+  .mobile-menu a:hover {
+    background: rgba(255, 212, 0, 0.08);
+
+    color: #FFD400;
+  }
+
+
+  .mobile-menu .mobile-order {
+    margin-top: 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    background: #FFD400;
+
+    color: #080808;
+
+    text-align: center;
+  }
+
+
+  .mobile-menu .mobile-order:hover {
+    background: #ffffff;
+
+    color: #080808;
+  }
+
+
+  .mobile-order span {
+    font-size: 16px;
+  }
+}
+
+
+/* =========================================================
    SMALL MOBILE
-========================================= */
+========================================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 380px) {
 
-  .navbar-shell {
-    height: 64px;
-  }
-
-  .navbar-brand {
-    width: 132px;
-
-    padding: 10px 14px 9px;
-  }
-
-  .brand-top {
-    font-size: 6px;
-    letter-spacing: 2.2px;
-  }
-
-  .brand-main {
+  .logo-main {
     font-size: 18px;
   }
 
-  .mobile-toggle {
-    left: -3px;
+  .logo-sub {
+    font-size: 8px;
+
+    letter-spacing: 0.27em;
+  }
+
+  .navbar-container {
+    width: calc(100% - 24px);
   }
 }
