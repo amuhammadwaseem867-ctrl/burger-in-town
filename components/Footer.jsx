@@ -1,172 +1,151 @@
 import "./Footer.css";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="footer">
-
-      {/* =================================================
-          MAIN FOOTER
-      ================================================= */}
 
       <div className="footer-container">
 
         {/* =================================================
-            BRAND
+            FOOTER MAIN
         ================================================= */}
 
-        <div className="footer-brand">
+        <div className="footer-main">
 
-          <span className="footer-kicker">
-            BURGER IN TOWN
-          </span>
+          {/* BRAND */}
 
-          <h2>
-            SEE YOU
-            <br />
-            <span>IN TOWN.</span>
-          </h2>
+          <div className="footer-brand">
 
-          <p>
-            Big burgers. Bold flavors.
-            <br />
-            Made for serious cravings.
-          </p>
+            <span className="footer-kicker">
+              BURGER IN TOWN
+            </span>
+
+            <h2>
+              BIG FLAVOR.
+              <span>GOOD TIMES.</span>
+            </h2>
+
+            <p>
+              Fresh burgers, loaded fries and bold flavors
+              made for every craving.
+            </p>
+
+          </div>
+
+
+          {/* EXPLORE */}
+
+          <div className="footer-column">
+
+            <span className="footer-label">
+              01 / EXPLORE
+            </span>
+
+            <a href="#home">
+              HOME
+            </a>
+
+            <a href="#menu">
+              MENU
+            </a>
+
+            <a href="#about">
+              ABOUT
+            </a>
+
+          </div>
+
+
+          {/* CONNECT */}
+
+          <div className="footer-column">
+
+            <span className="footer-label">
+              02 / CONNECT
+            </span>
+
+            <a
+              href="https://wa.me/923068126737"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WHATSAPP
+              <span>↗</span>
+            </a>
+
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              INSTAGRAM
+              <span>↗</span>
+            </a>
+
+          </div>
+
+
+          {/* LOCATION */}
+
+          <div className="footer-column">
+
+            <span className="footer-label">
+              03 / FIND US
+            </span>
+
+            <p>
+              RAWALPINDI
+              <br />
+              ISLAMABAD
+            </p>
+
+            <a
+              href="https://www.google.com/maps"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GET DIRECTIONS
+              <span>↗</span>
+            </a>
+
+          </div>
 
         </div>
 
 
         {/* =================================================
-            EXPLORE
+            FOOTER BOTTOM
         ================================================= */}
 
-        <div className="footer-column">
+        <div className="footer-bottom">
 
-          <span className="footer-label">
-            EXPLORE
+          <span className="footer-copyright">
+            © {currentYear} BURGER IN TOWN. ALL RIGHTS RESERVED.
           </span>
 
-          <a href="#menu">
-            MENU
-            <span>↗</span>
-          </a>
 
-          <a href="#deals">
-            DEALS
-            <span>↗</span>
-          </a>
+          {/* CENTER CREDIT */}
 
-          <a href="#about">
-            ABOUT
-            <span>↗</span>
-          </a>
+          <div className="footer-credit">
+
+            <span>
+              WEBSITE BY
+            </span>
+
+            <a
+              href="https://www.wacreativesolution.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WA CREATIVE SOLUTIONS
+              <b>↗</b>
+            </a>
+
+          </div>
 
         </div>
-
-
-        {/* =================================================
-            CONTACT
-        ================================================= */}
-
-        <div className="footer-column">
-
-          <span className="footer-label">
-            CONTACT
-          </span>
-
-          <a href="tel:+923000000000">
-            +92 300 0000000
-          </a>
-
-          <a
-            href="https://www.google.com/maps"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            FIND US
-            <span>↗</span>
-          </a>
-
-        </div>
-
-
-        {/* =================================================
-            SOCIAL
-        ================================================= */}
-
-        <div className="footer-column">
-
-          <span className="footer-label">
-            FOLLOW
-          </span>
-
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            INSTAGRAM
-            <span>↗</span>
-          </a>
-
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            FACEBOOK
-            <span>↗</span>
-          </a>
-
-        </div>
-
-      </div>
-
-
-      {/* =================================================
-          LARGE BRAND MARQUEE
-      ================================================= */}
-
-      <div className="footer-marquee">
-
-        <div className="footer-marquee-track">
-
-          <span>
-            BURGER IN TOWN
-          </span>
-
-          <span>
-            BURGER IN TOWN
-          </span>
-
-        </div>
-
-      </div>
-
-
-      {/* =================================================
-          BOTTOM BAR
-      ================================================= */}
-
-      <div className="footer-bottom">
-
-        <span>
-          © {new Date().getFullYear()} BURGER IN TOWN
-        </span>
-
-        <span>
-          ALL RIGHTS RESERVED
-        </span>
-
-        <span className="footer-credit">
-          DESIGNED BY{" "}
-          <a
-            href="https://www.wacreativesolution.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            WA CREATIVE SOLUTIONS
-          </a>
-        </span>
 
       </div>
 

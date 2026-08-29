@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 
+import LocationLoader from "../components/LocationLoader";
+
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Menu from "../components/Menu";
-import Deals from "../components/Deals";
 import Info from "../components/Info";
 import Footer from "../components/Footer";
 
@@ -13,9 +14,11 @@ import CartDrawer from "../components/CartDrawer";
 import Checkout from "../components/Checkout";
 import WhatsAppButton from "../components/WhatsAppButton";
 
+
 export default function Home() {
+
   /* =====================================================
-     CART
+     CART STATE
   ===================================================== */
 
   const [cart, setCart] = useState([]);
@@ -31,12 +34,15 @@ export default function Home() {
   ===================================================== */
 
   const handleAddToCart = (item) => {
+
     setCart((currentCart) => {
+
       const existingItem = currentCart.find(
         (cartItem) => cartItem.id === item.id
       );
 
       if (existingItem) {
+
         return currentCart.map((cartItem) =>
           cartItem.id === item.id
             ? {
@@ -45,6 +51,7 @@ export default function Home() {
               }
             : cartItem
         );
+
       }
 
       return [
@@ -54,6 +61,7 @@ export default function Home() {
           quantity: 1,
         },
       ];
+
     });
 
     setIsCartOpen(true);
@@ -65,6 +73,7 @@ export default function Home() {
   ===================================================== */
 
   const handleIncrease = (id) => {
+
     setCart((currentCart) =>
       currentCart.map((item) =>
         item.id === id
@@ -75,6 +84,7 @@ export default function Home() {
           : item
       )
     );
+
   };
 
 
@@ -83,6 +93,7 @@ export default function Home() {
   ===================================================== */
 
   const handleDecrease = (id) => {
+
     setCart((currentCart) =>
       currentCart
         .map((item) =>
@@ -95,6 +106,7 @@ export default function Home() {
         )
         .filter((item) => item.quantity > 0)
     );
+
   };
 
 
@@ -103,11 +115,13 @@ export default function Home() {
   ===================================================== */
 
   const handleRemove = (id) => {
+
     setCart((currentCart) =>
       currentCart.filter(
         (item) => item.id !== id
       )
     );
+
   };
 
 
@@ -134,6 +148,7 @@ export default function Home() {
   ===================================================== */
 
   const handleCheckout = () => {
+
     if (cart.length === 0) {
       return;
     }
@@ -143,6 +158,7 @@ export default function Home() {
     setTimeout(() => {
       setIsCheckoutOpen(true);
     }, 250);
+
   };
 
 
@@ -155,10 +171,16 @@ export default function Home() {
   };
 
 
+  /* =====================================================
+     PAGE
+  ===================================================== */
+
   return (
-    <>
+
+    <LocationLoader>
+
       {/* =================================================
-          NAVBAR
+          MAIN NAVBAR
       ================================================= */}
 
       <Navbar
@@ -177,24 +199,36 @@ export default function Home() {
         <Hero />
 
 
-        {/* MENU */}
+        {/* =================================================
+            MENU
+
+            Menu ke andar:
+
+            POPULAR DEALS
+            BEEF
+            CHICKEN
+            FRIES
+            SIDES
+            DRINKS
+
+            Menu navigation + banners + items
+        ================================================= */}
 
         <Menu
           onAddToCart={handleAddToCart}
         />
 
 
-        {/* DEALS */}
-
-        <Deals />
-
-
-        {/* ABOUT / INFO */}
+        {/* =================================================
+            ABOUT / INFO
+        ================================================= */}
 
         <Info />
 
 
-        {/* FOOTER */}
+        {/* =================================================
+            FOOTER
+        ================================================= */}
 
         <Footer />
 
@@ -232,6 +266,8 @@ export default function Home() {
       ================================================= */}
 
       <WhatsAppButton />
-    </>
+
+    </LocationLoader>
+
   );
 }

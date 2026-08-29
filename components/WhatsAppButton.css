@@ -1,33 +1,27 @@
 /* =========================================================
    BURGER IN TOWN
    WHATSAPP FLOATING BUTTON
+   ORANGE THEME
 ========================================================= */
 
 .whatsapp-button {
   position: fixed;
-
   right: 24px;
   bottom: 24px;
-
   z-index: 950;
 
   display: flex;
-
   align-items: center;
-
   gap: 13px;
 
   min-height: 52px;
-
   padding: 0 15px 0 18px;
 
-  background: #FFD400;
-
+  background: #FF5A00;
   color: #080808;
 
   text-decoration: none;
-
-  border: 1px solid #FFD400;
+  border: 1px solid #FF5A00;
 
   box-shadow:
     0 12px 35px rgba(0, 0, 0, 0.35);
@@ -35,7 +29,8 @@
   transition:
     transform 0.3s ease,
     background 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 
@@ -45,11 +40,8 @@
 
 .whatsapp-text {
   font-size: 8px;
-
   font-weight: 950;
-
   letter-spacing: 0.13em;
-
   white-space: nowrap;
 }
 
@@ -63,9 +55,7 @@
   height: 28px;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 
   border-radius: 50%;
@@ -83,7 +73,7 @@
 
   display: block;
 
-  fill: #FFD400;
+  fill: #FF5A00;
 }
 
 
@@ -93,9 +83,7 @@
 
 .whatsapp-arrow {
   font-size: 17px;
-
   line-height: 1;
-
   font-weight: 400;
 
   transition:
@@ -109,7 +97,6 @@
 
 .whatsapp-button:hover {
   background: #ffffff;
-
   border-color: #ffffff;
 
   transform: translateY(-4px);
@@ -119,8 +106,7 @@
 }
 
 .whatsapp-button:hover .whatsapp-icon {
-  background: #FFD400;
-
+  background: #FF5A00;
   transform: rotate(-8deg);
 }
 
@@ -134,39 +120,37 @@
 
 
 /* =========================================================
-   PULSE
+   ORANGE PULSE
 ========================================================= */
 
 .whatsapp-button::before {
   content: "";
 
   position: absolute;
-
   inset: -5px;
 
-  border: 1px solid rgba(255, 212, 0, 0.35);
+  border: 1px solid rgba(255, 90, 0, 0.4);
 
   pointer-events: none;
 
-  animation: whatsappPulse 2.5s ease-out infinite;
+  animation:
+    whatsappPulse 2.5s ease-out infinite;
 }
+
 
 @keyframes whatsappPulse {
   0% {
     opacity: 0.8;
-
     transform: scale(0.95);
   }
 
   70% {
     opacity: 0;
-
     transform: scale(1.08);
   }
 
   100% {
     opacity: 0;
-
     transform: scale(1.08);
   }
 }
@@ -177,7 +161,6 @@
 ========================================================= */
 
 @media (max-width: 600px) {
-
   .whatsapp-button {
     right: 16px;
     bottom: 16px;
@@ -214,17 +197,10 @@
 ========================================================= */
 
 @media (max-width: 380px) {
-
   .whatsapp-button {
     right: 12px;
     bottom: 12px;
-  }
 
-  .whatsapp-text {
-    display: none;
-  }
-
-  .whatsapp-button {
     width: 50px;
     height: 50px;
 
@@ -237,11 +213,20 @@
     border-radius: 50%;
   }
 
+  .whatsapp-text {
+    display: none;
+  }
+
   .whatsapp-icon {
     width: 28px;
     height: 28px;
 
     background: #080808;
+  }
+
+  .whatsapp-icon svg {
+    width: 15px;
+    height: 15px;
   }
 
   .whatsapp-arrow {

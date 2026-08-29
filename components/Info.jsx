@@ -13,7 +13,7 @@ export default function Info() {
         <div className="info-about">
 
           <span className="info-kicker">
-            WELCOME TO THE TOWN
+            WELCOME TO BURGER IN TOWN
           </span>
 
           <h2>
@@ -32,13 +32,8 @@ export default function Info() {
             href="#menu"
             className="info-menu-link"
           >
-            <span>
-              EXPLORE MENU
-            </span>
-
-            <b>
-              ↗
-            </b>
+            <span>EXPLORE MENU</span>
+            <b>↗</b>
           </a>
 
         </div>
@@ -80,6 +75,7 @@ export default function Info() {
               href="https://www.google.com/maps"
               target="_blank"
               rel="noopener noreferrer"
+              className="info-action"
             >
               GET DIRECTIONS
               <span>↗</span>
@@ -88,7 +84,7 @@ export default function Info() {
           </div>
 
 
-          {/* HOURS */}
+          {/* OPENING HOURS */}
 
           <div className="info-block">
 
@@ -117,7 +113,6 @@ export default function Info() {
                 </strong>
 
               </div>
-
 
               <div className="hours-row">
 

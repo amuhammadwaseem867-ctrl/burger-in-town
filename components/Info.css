@@ -1,47 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+
 /* =========================================================
-   BURGER IN TOWN
-   INFO / ABOUT
+   INFO SECTION
 ========================================================= */
 
 .info-section {
-  position: relative;
-
   width: 100%;
-
-  padding: 140px 0;
+  padding: 90px 0;
 
   background: #080808;
-
   color: #ffffff;
 
   overflow: hidden;
-}
-
-
-/* =========================================================
-   BACKGROUND DETAIL
-========================================================= */
-
-.info-section::after {
-  content: "";
-
-  position: absolute;
-
-  top: 50%;
-  right: -300px;
-
-  width: 600px;
-  height: 600px;
-
-  transform: translateY(-50%);
-
-  border-radius: 50%;
-
-  background: rgba(255, 212, 0, 0.025);
-
-  filter: blur(100px);
-
-  pointer-events: none;
 }
 
 
@@ -50,154 +21,129 @@
 ========================================================= */
 
 .info-container {
-  position: relative;
-
-  z-index: 2;
-
-  width: min(1400px, calc(100% - 80px));
-
+  width: min(1200px, 92%);
   margin: 0 auto;
 
   display: grid;
+  grid-template-columns: 1fr 1fr;
 
-  grid-template-columns:
-    minmax(0, 1.2fr)
-    minmax(380px, 0.8fr);
-
-  gap: 110px;
-
-  align-items: start;
+  gap: 70px;
 }
 
 
 /* =========================================================
-   KICKER
+   ABOUT
 ========================================================= */
+
+.info-about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 
 .info-kicker {
-  display: inline-flex;
+  display: block;
 
-  align-items: center;
+  margin-bottom: 15px;
 
-  gap: 12px;
-
-  margin-bottom: 25px;
-
-  color: #FFD400;
-
-  font-size: 10px;
-
+  font-family: "Inter", sans-serif;
+  font-size: 9px;
   font-weight: 900;
+  letter-spacing: 1.8px;
 
-  letter-spacing: 0.22em;
-
-  text-transform: uppercase;
+  color: #ff5a00;
 }
 
-.info-kicker::before {
-  content: "";
-
-  width: 32px;
-  height: 2px;
-
-  background: #FFD400;
-}
-
-
-/* =========================================================
-   MAIN HEADING
-========================================================= */
 
 .info-about h2 {
   margin: 0;
 
-  max-width: 800px;
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(38px, 4.5vw, 58px);
+  line-height: 0.98;
+  letter-spacing: -2px;
 
-  font-size: clamp(55px, 7vw, 105px);
-
-  line-height: 0.86;
-
-  letter-spacing: -0.065em;
-
-  font-weight: 900;
-
-  text-transform: uppercase;
+  color: #ffffff;
 }
+
 
 .info-about h2 span {
   display: block;
 
-  color: #FFD400;
+  color: #ff5a00;
 }
 
 
-/* =========================================================
-   DESCRIPTION
-========================================================= */
+.info-about p {
+  max-width: 500px;
 
-.info-about > p {
-  max-width: 570px;
+  margin: 24px 0 30px;
 
-  margin: 35px 0 35px;
-
-  color: rgba(255, 255, 255, 0.58);
-
-  font-size: 14px;
-
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
   line-height: 1.8;
+
+  color: #858585;
 }
 
 
 /* =========================================================
-   MENU LINK
+   EXPLORE MENU
 ========================================================= */
 
 .info-menu-link {
   display: inline-flex;
-
   align-items: center;
+  justify-content: center;
 
-  gap: 18px;
+  width: fit-content;
 
-  min-height: 48px;
+  gap: 16px;
 
-  padding: 0 18px;
+  padding: 13px 18px;
 
-  border: 1px solid rgba(255, 212, 0, 0.5);
-
-  color: #FFD400;
-
-  font-size: 9px;
-
-  font-weight: 900;
-
-  letter-spacing: 0.15em;
+  border: 1px solid #303030;
+  border-radius: 999px;
 
   text-decoration: none;
 
+  font-family: "Inter", sans-serif;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1.3px;
+
+  color: #ffffff;
+
   transition:
-    background 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease,
-    transform 0.3s ease;
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
 }
+
 
 .info-menu-link b {
-  font-size: 17px;
-
-  font-weight: 400;
-
+  font-size: 16px;
   line-height: 1;
+
+  color: #ff5a00;
 }
 
-.info-menu-link:hover {
-  background: #FFD400;
 
-  border-color: #FFD400;
+.info-menu-link:hover {
+  background: #ff5a00;
+  border-color: #ff5a00;
 
   color: #080808;
 
-  transform: translateY(-3px);
+  transform: translateY(-2px);
+}
+
+
+.info-menu-link:hover b {
+  color: #080808;
 }
 
 
@@ -207,137 +153,157 @@
 
 .info-details {
   display: flex;
-
   flex-direction: column;
 
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  gap: 15px;
 }
 
 
 /* =========================================================
-   INFO BLOCK
+   INFO CARD
 ========================================================= */
 
 .info-block {
-  padding: 30px 0;
+  padding: 25px;
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: #101010;
+
+  border: 1px solid #252525;
+  border-radius: 17px;
+
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.info-block:hover {
+  border-color: #ff5a00;
+
+  transform: translateY(-3px);
 }
 
 
 /* =========================================================
-   BLOCK TOP
+   CARD TOP
 ========================================================= */
 
 .info-block-top {
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
 
-  margin-bottom: 28px;
+  padding-bottom: 16px;
+  margin-bottom: 19px;
+
+  border-bottom: 1px solid #252525;
 }
+
 
 .info-block-top span {
-  color: rgba(255, 255, 255, 0.4);
-
-  font-size: 9px;
-
+  font-family: "Inter", sans-serif;
+  font-size: 8px;
   font-weight: 900;
+  letter-spacing: 1.4px;
 
-  letter-spacing: 0.17em;
+  color: #666666;
 }
 
+
 .info-block-top i {
-  color: #FFD400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  font-size: 17px;
+  width: 30px;
+  height: 30px;
 
+  border-radius: 50%;
+
+  background: #ff5a00;
+  color: #080808;
+
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
   font-style: normal;
+  font-weight: 900;
 }
 
 
 /* =========================================================
-   LOCATION HEADING
+   LOCATION TITLE
 ========================================================= */
 
 .info-block h3 {
   margin: 0;
 
+  font-family: "Archivo Black", sans-serif;
+  font-size: 28px;
+  line-height: 1;
+
+  letter-spacing: -1px;
+
   color: #ffffff;
-
-  font-size: 35px;
-
-  line-height: 0.95;
-
-  font-weight: 900;
-
-  letter-spacing: -0.045em;
 }
+
 
 .info-block h3 span {
   display: block;
 
-  color: #FFD400;
+  margin-top: 5px;
+
+  color: #ff5a00;
 }
 
 
 /* =========================================================
-   BLOCK DESCRIPTION
+   DESCRIPTION
 ========================================================= */
 
 .info-block > p {
-  max-width: 390px;
+  margin: 17px 0 20px;
 
-  margin: 20px 0;
-
-  color: rgba(255, 255, 255, 0.48);
-
-  font-size: 12px;
-
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
   line-height: 1.7;
+
+  color: #777777;
 }
 
 
 /* =========================================================
-   DIRECTIONS
+   GET DIRECTIONS
 ========================================================= */
 
-.info-block > a {
+.info-action {
   display: inline-flex;
-
   align-items: center;
 
-  gap: 12px;
-
-  color: #ffffff;
-
-  font-size: 9px;
-
-  font-weight: 900;
-
-  letter-spacing: 0.14em;
+  gap: 9px;
 
   text-decoration: none;
 
-  transition: color 0.3s ease;
+  font-family: "Inter", sans-serif;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 1.3px;
+
+  color: #ffffff;
+
+  transition: color 0.2s ease;
 }
 
-.info-block > a span {
-  color: #FFD400;
 
-  font-size: 15px;
+.info-action span {
+  font-size: 14px;
 
-  transition: transform 0.3s ease;
+  color: #ff5a00;
 }
 
-.info-block > a:hover {
-  color: #FFD400;
-}
 
-.info-block > a:hover span {
-  transform: translate(3px, -3px);
+.info-action:hover {
+  color: #ff5a00;
 }
 
 
@@ -347,56 +313,52 @@
 
 .hours {
   display: flex;
-
   flex-direction: column;
 
-  gap: 0;
+  gap: 17px;
 }
+
 
 .hours-row {
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
 
   gap: 20px;
 
-  padding: 17px 0;
+  padding-bottom: 17px;
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid #252525;
 }
 
-.hours-row:first-child {
-  padding-top: 0;
-}
 
 .hours-row:last-child {
-  border-bottom: 0;
-
   padding-bottom: 0;
+
+  border-bottom: none;
 }
+
 
 .hours-row p {
   margin: 0;
 
-  color: rgba(255, 255, 255, 0.4);
-
+  font-family: "Inter", sans-serif;
   font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
 
-  font-weight: 900;
-
-  letter-spacing: 0.12em;
+  color: #666666;
 }
 
+
 .hours-row strong {
-  color: #ffffff;
-
-  font-size: 11px;
-
-  font-weight: 700;
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 800;
 
   text-align: right;
+
+  color: #ffffff;
 }
 
 
@@ -404,25 +366,18 @@
    TABLET
 ========================================================= */
 
-@media (max-width: 1000px) {
-
-  .info-section {
-    padding: 110px 0;
-  }
+@media (max-width: 900px) {
 
   .info-container {
-    width: calc(100% - 48px);
+    grid-template-columns: 1fr;
 
-    grid-template-columns:
-      minmax(0, 1fr)
-      minmax(300px, 0.75fr);
-
-    gap: 60px;
+    gap: 45px;
   }
 
   .info-about h2 {
-    font-size: clamp(50px, 8vw, 78px);
+    font-size: 52px;
   }
+
 }
 
 
@@ -430,64 +385,62 @@
    MOBILE
 ========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
 
   .info-section {
-    padding: 90px 0;
+    padding: 65px 0;
   }
+
 
   .info-container {
-    width: calc(100% - 32px);
+    width: 92%;
 
-    display: block;
+    gap: 35px;
   }
 
-
-  /* ABOUT */
 
   .info-about h2 {
-    font-size: clamp(48px, 14vw, 68px);
-  }
+    font-size: 39px;
 
-  .info-about > p {
-    margin-top: 28px;
-
-    font-size: 13px;
-
-    line-height: 1.75;
+    letter-spacing: -1.5px;
   }
 
 
-  /* DETAILS */
+  .info-about p {
+    margin: 20px 0 25px;
 
-  .info-details {
-    margin-top: 75px;
+    font-size: 12px;
+    line-height: 1.7;
   }
+
 
   .info-block {
-    padding: 27px 0;
+    padding: 21px;
+
+    border-radius: 14px;
   }
+
 
   .info-block h3 {
-    font-size: 31px;
+    font-size: 25px;
   }
 
-
-  /* HOURS */
 
   .hours-row {
     align-items: flex-start;
 
     flex-direction: column;
 
-    gap: 7px;
+    gap: 6px;
   }
+
 
   .hours-row strong {
     text-align: left;
 
-    font-size: 11px;
+    font-size: 10px;
   }
+
 }
 
 
@@ -498,10 +451,17 @@
 @media (max-width: 380px) {
 
   .info-about h2 {
-    font-size: 45px;
+    font-size: 34px;
   }
 
-  .info-block h3 {
-    font-size: 28px;
+
+  .info-block {
+    padding: 18px;
   }
+
+
+  .info-block h3 {
+    font-size: 23px;
+  }
+
 }

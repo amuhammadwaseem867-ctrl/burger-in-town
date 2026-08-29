@@ -1,0 +1,628 @@
+/* =========================================================
+   BURGER IN TOWN
+   COMPACT PREMIUM LOCATION LOADER
+========================================================= */
+
+.location-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #080808;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   LOADER CONTENT
+========================================================= */
+
+.loader-content {
+  width: min(280px, calc(100% - 40px));
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.loader-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  line-height: 0.86;
+  text-transform: uppercase;
+}
+
+.loader-logo span {
+  font-size: 30px;
+  font-weight: 950;
+  letter-spacing: -0.055em;
+}
+
+.loader-logo strong {
+  margin-top: 5px;
+
+  color: #ff5a00;
+
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+}
+
+
+/* =========================================================
+   LOADING LINE
+========================================================= */
+
+.loader-line {
+  position: relative;
+
+  width: 120px;
+  height: 2px;
+
+  margin-top: 30px;
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.loader-line span {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 45%;
+  height: 100%;
+
+  background: #ff5a00;
+
+  animation: loaderProgress 1.25s
+    cubic-bezier(0.65, 0, 0.35, 1)
+    infinite;
+}
+
+@keyframes loaderProgress {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  50% {
+    transform: translateX(120%);
+  }
+
+  100% {
+    transform: translateX(280%);
+  }
+}
+
+
+/* =========================================================
+   LOADING TEXT
+========================================================= */
+
+.loader-content p {
+  margin: 13px 0 0;
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   LOCATION OVERLAY
+========================================================= */
+
+.location-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9998;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.78);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+
+/* =========================================================
+   LOCATION POPUP
+========================================================= */
+
+.location-popup {
+  position: relative;
+
+  width: min(430px, 100%);
+
+  padding: 42px 38px 34px;
+
+  background: #101010;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.55);
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+.location-close {
+  position: absolute;
+
+  top: 16px;
+  right: 16px;
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 20px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.location-close:hover {
+  background: #ff5a00;
+  color: #080808;
+}
+
+
+/* =========================================================
+   KICKER
+========================================================= */
+
+.location-kicker {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: #ff5a00;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 0.24em;
+}
+
+
+/* =========================================================
+   LOCATION ICON
+========================================================= */
+
+.location-icon {
+  width: 54px;
+  height: 54px;
+
+  margin: 0 auto 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 90, 0, 0.35);
+
+  border-radius: 50%;
+
+  color: #ff5a00;
+
+  background: rgba(255, 90, 0, 0.06);
+}
+
+.location-icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.location-popup h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(30px, 6vw, 42px);
+
+  line-height: 0.9;
+
+  letter-spacing: -0.055em;
+
+  font-weight: 950;
+
+  text-transform: uppercase;
+}
+
+.location-popup h2 span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #ff5a00;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.location-popup > p {
+  max-width: 340px;
+
+  margin: 18px auto 24px;
+
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   ALLOW LOCATION
+========================================================= */
+
+.allow-location {
+  width: 100%;
+  min-height: 52px;
+
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 1px solid #ff5a00;
+
+  background: #ff5a00;
+
+  color: #080808;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 0.13em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.allow-location b {
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.allow-location:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.location-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin: 20px 0;
+
+  color: rgba(255, 255, 255, 0.3);
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+}
+
+.location-divider span {
+  flex: 1;
+
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================================
+   AREA OPTIONS
+========================================================= */
+
+.area-options {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 9px;
+}
+
+.area-options button {
+  min-height: 48px;
+
+  padding: 0 13px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+
+  background: rgba(255, 255, 255, 0.025);
+
+  color: #ffffff;
+
+  font-size: 8px;
+  font-weight: 850;
+
+  letter-spacing: 0.12em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.area-options button b {
+  color: #ff5a00;
+
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.area-options button:hover {
+  background: #ff5a00;
+  border-color: #ff5a00;
+
+  color: #080808;
+}
+
+.area-options button:hover b {
+  color: #080808;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.location-error {
+  margin: 15px 0 0 !important;
+
+  color: #ff5a00 !important;
+
+  font-size: 11px !important;
+  line-height: 1.5 !important;
+}
+
+
+/* =========================================================
+   PRIVACY NOTE
+========================================================= */
+
+.location-popup small {
+  display: block;
+
+  max-width: 300px;
+
+  margin: 20px auto 0;
+
+  color: rgba(255, 255, 255, 0.3);
+
+  font-size: 8px;
+
+  line-height: 1.5;
+
+  letter-spacing: 0.02em;
+}
+
+
+/* =========================================================
+   SELECTED LOCATION
+========================================================= */
+
+.selected-location {
+  position: fixed;
+
+  left: 22px;
+  bottom: 22px;
+
+  z-index: 900;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 14px;
+
+  background: #101010;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.selected-location span {
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+}
+
+.selected-location strong {
+  color: #ff5a00;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .loader-content {
+    width: 240px;
+  }
+
+  .loader-logo span {
+    font-size: 26px;
+  }
+
+  .loader-logo strong {
+    font-size: 11px;
+  }
+
+  .loader-line {
+    width: 100px;
+    margin-top: 24px;
+  }
+
+  .loader-content p {
+    font-size: 7px;
+  }
+
+
+  .location-popup {
+    padding: 38px 22px 26px;
+  }
+
+  .location-kicker {
+    margin-bottom: 15px;
+  }
+
+  .location-icon {
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 18px;
+  }
+
+  .location-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .location-popup h2 {
+    font-size: 31px;
+  }
+
+  .location-popup > p {
+    margin: 15px auto 21px;
+
+    font-size: 12px;
+  }
+
+  .allow-location {
+    min-height: 50px;
+  }
+
+  .selected-location {
+    left: 14px;
+    bottom: 14px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .location-popup {
+    padding: 34px 18px 22px;
+  }
+
+  .location-popup h2 {
+    font-size: 28px;
+  }
+
+  .location-popup > p {
+    font-size: 11px;
+  }
+
+  .area-options {
+    grid-template-columns: 1fr;
+  }
+
+  .area-options button {
+    min-height: 44px;
+  }
+
+  .selected-location {
+    left: 10px;
+    bottom: 10px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-line span {
+    animation: none;
+  }
+}
