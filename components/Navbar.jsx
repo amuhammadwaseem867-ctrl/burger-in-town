@@ -38,7 +38,7 @@ export default function Navbar({ onOrderClick }) {
         ================================================= */}
 
         <a
-          href="/"
+          href="#home"
           className="navbar-logo"
           onClick={closeMenu}
         >

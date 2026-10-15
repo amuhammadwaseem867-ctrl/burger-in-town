@@ -1,13 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { menuSections } from "../data/menu";
 import "./Hero.css";
+
+const itemCount = menuSections.reduce(
+  (total, section) => total + section.items.length,
+  0
+);
+
+const stats = [
+  { value: itemCount, label: "Menu items" },
+  { value: "12 PM", label: "Open every day" },
+  { value: "RWP · ISB", label: "Two cities" },
+];
 
 export default function Hero() {
   return (
-    <section className="hero">
+    <section className="hero" id="home">
 
-      {/* Background Video */}
+      {/* Background Video (poster shows while loading) */}
       <video
         className="hero-video"
         autoPlay
@@ -15,6 +27,7 @@ export default function Hero() {
         loop
         playsInline
         preload="auto"
+        poster="/images/hero-poster.jpg"
         aria-hidden="true"
       >
         <source
@@ -63,16 +76,34 @@ export default function Hero() {
             </a>
 
             <a
-              href="#order"
+              href="#deals"
               className="hero-button hero-button-secondary"
             >
-              Order Now
+              Today&apos;s Specials
             </a>
 
           </div>
 
+          <ul className="hero-stats">
+            {stats.map((stat) => (
+              <li key={stat.label}>
+                <strong>{stat.value}</strong>
+                <span>{stat.label}</span>
+              </li>
+            ))}
+          </ul>
+
         </motion.div>
       </div>
+
+      {/* Scroll cue */}
+      <a
+        href="#deals"
+        className="hero-scroll"
+        aria-label="Scroll to specials"
+      >
+        <span />
+      </a>
 
     </section>
   );

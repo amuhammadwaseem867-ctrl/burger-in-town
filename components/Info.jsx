@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "./Info.css";
 
 export default function Info() {
@@ -6,35 +7,80 @@ export default function Info() {
 
       <div className="info-container">
 
-        {/* =================================================
-            ABOUT
-        ================================================= */}
+        <div className="info-intro">
 
-        <div className="info-about">
+          {/* =================================================
+              ABOUT
+          ================================================= */}
 
-          <span className="info-kicker">
-            WELCOME TO BURGER IN TOWN
-          </span>
+          <div className="info-about">
 
-          <h2>
-            BIG FLAVOR.
-            <span>REAL BURGERS.</span>
-          </h2>
+            <span className="info-kicker">
+              WELCOME TO BURGER IN TOWN
+            </span>
 
-          <p>
-            Burger In Town is all about seriously good
-            burgers, loaded fries and food worth coming
-            back for. Freshly prepared, generously loaded
-            and made to satisfy every craving.
-          </p>
+            <h2>
+              BIG FLAVOR.
+              <span>REAL BURGERS.</span>
+            </h2>
 
-          <a
-            href="#menu"
-            className="info-menu-link"
-          >
-            <span>EXPLORE MENU</span>
-            <b>↗</b>
-          </a>
+            <p>
+              Burger In Town is all about seriously good
+              burgers, loaded fries and food worth coming
+              back for. Freshly prepared, generously loaded
+              and made to satisfy every craving.
+            </p>
+
+            <a
+              href="#menu"
+              className="info-menu-link"
+            >
+              <span>EXPLORE MENU</span>
+              <b>↗</b>
+            </a>
+
+          </div>
+
+
+          {/* =================================================
+              IMAGE
+          ================================================= */}
+
+          <div className="info-visual">
+
+            <Image
+              src="/hero-burger.jpg"
+              alt="Cheeseburger with lettuce and tomato on a wooden table"
+              fill
+              sizes="(max-width: 900px) 92vw, 600px"
+            />
+
+            <div className="info-stamp" aria-hidden="true">
+
+              <svg viewBox="0 0 120 120">
+                <defs>
+                  <path
+                    id="info-stamp-circle"
+                    d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"
+                  />
+                </defs>
+
+                <text>
+                  <textPath href="#info-stamp-circle">
+                    BURGER IN TOWN • BIG FLAVOR • GOOD TIMES •
+                  </textPath>
+                </text>
+              </svg>
+
+              <b>★</b>
+
+            </div>
+
+            <span className="info-visual-tag">
+              FRESHLY PREPARED • GENEROUSLY LOADED
+            </span>
+
+          </div>
 
         </div>
 

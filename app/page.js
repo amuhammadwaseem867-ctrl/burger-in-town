@@ -6,8 +6,11 @@ import LocationLoader from "../components/LocationLoader";
 
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import Ticker from "../components/Ticker";
+import Specials from "../components/Specials";
 import Menu from "../components/Menu";
 import Info from "../components/Info";
+import OrderBanner from "../components/OrderBanner";
 import Footer from "../components/Footer";
 
 import CartDrawer from "../components/CartDrawer";
@@ -199,6 +202,18 @@ export default function Home() {
         <Hero />
 
 
+        {/* SCROLLING BANNER */}
+
+        <Ticker />
+
+
+        {/* TODAY'S SPECIALS BANNERS */}
+
+        <Specials
+          onAddToCart={handleAddToCart}
+        />
+
+
         {/* =================================================
             MENU
 
@@ -224,6 +239,13 @@ export default function Home() {
         ================================================= */}
 
         <Info />
+
+
+        {/* =================================================
+            ORDER BANNER
+        ================================================= */}
+
+        <OrderBanner />
 
 
         {/* =================================================

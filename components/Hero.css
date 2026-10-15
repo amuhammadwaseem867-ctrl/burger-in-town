@@ -119,7 +119,7 @@
   color: #ff5a00;
 
   font-family: "Inter", sans-serif;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 900;
 
   letter-spacing: 0.20em;
@@ -179,7 +179,7 @@
 
   font-family: "Inter", sans-serif;
 
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
 
   line-height: 1.7;
@@ -209,9 +209,9 @@
 ========================================================= */
 
 .hero-button {
-  min-height: 52px;
+  min-height: 54px;
 
-  padding: 0 23px;
+  padding: 0 26px;
 
   display: inline-flex;
   align-items: center;
@@ -222,7 +222,7 @@
   border-radius: 999px;
 
   font-family: "Inter", sans-serif;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 900;
 
   letter-spacing: 0.13em;
@@ -288,6 +288,111 @@
   border-color: #ffffff;
 
   transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 14px 38px;
+
+  margin: 46px 0 0;
+  padding: 24px 0 0;
+
+  list-style: none;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+
+.hero-stats li {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+
+.hero-stats strong {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1;
+
+  letter-spacing: -0.02em;
+
+  color: #ffffff;
+}
+
+
+.hero-stats span {
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* =========================================================
+   SCROLL CUE
+========================================================= */
+
+.hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  z-index: 3;
+
+  width: 26px;
+  height: 42px;
+
+  display: flex;
+  justify-content: center;
+
+  padding-top: 8px;
+
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+
+  transform: translateX(-50%);
+}
+
+
+.hero-scroll span {
+  width: 3px;
+  height: 8px;
+
+  border-radius: 999px;
+
+  background: #ff5a00;
+
+  animation: heroScroll 1.8s ease-in-out infinite;
+}
+
+
+@keyframes heroScroll {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
 }
 
 
@@ -375,7 +480,7 @@
   .hero-label {
     margin-bottom: 17px;
 
-    font-size: 8px;
+    font-size: 10px;
 
     letter-spacing: 0.16em;
   }
@@ -405,7 +510,7 @@
 
     margin: 21px 0 27px;
 
-    font-size: 12px;
+    font-size: 14px;
 
     line-height: 1.7;
   }
@@ -424,7 +529,34 @@
   .hero-button {
     width: 100%;
 
-    min-height: 51px;
+    min-height: 52px;
+  }
+
+
+  .hero-stats {
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-top: 34px;
+    padding-top: 20px;
+  }
+
+
+  .hero-stats strong {
+    font-size: 19px;
+  }
+
+
+  .hero-stats span {
+    font-size: 8.5px;
+
+    letter-spacing: 0.1em;
+  }
+
+
+  .hero-scroll {
+    display: none;
   }
 
 }
@@ -442,12 +574,12 @@
 
 
   .hero-content p {
-    font-size: 11px;
+    font-size: 13px;
   }
 
 
   .hero-label {
-    font-size: 7px;
+    font-size: 9px;
   }
 
 }
@@ -465,12 +597,21 @@
 
 
   .hero {
-    background: #080808;
+    background:
+      #080808
+      url("/images/hero-poster.jpg")
+      center 18% / cover
+      no-repeat;
   }
 
 
   .hero-button {
     transition: none;
+  }
+
+
+  .hero-scroll span {
+    animation: none;
   }
 
 }

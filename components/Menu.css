@@ -8,8 +8,10 @@
   width: 100%;
   background: #080808;
   color: #ffffff;
-  padding: 90px 0;
-  overflow: hidden;
+  padding: 100px 0 40px;
+
+  /* clip (not hidden) so the sticky nav keeps working */
+  overflow-x: clip;
 }
 
 /* =========================================================
@@ -30,25 +32,34 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 40px;
-  margin-bottom: 45px;
+  margin-bottom: 40px;
 }
 
 .menu-eyebrow {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 14px;
   font-family: "Inter", sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 900;
   letter-spacing: 2px;
   color: #ff5a00;
 }
 
+.menu-eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  background: #ff5a00;
+}
+
 .menu-heading h2 {
   margin: 0;
   font-family: "Archivo Black", sans-serif;
-  font-size: clamp(42px, 5vw, 64px);
-  line-height: 0.95;
-  letter-spacing: -2px;
+  font-size: clamp(42px, 5.4vw, 72px);
+  line-height: 0.92;
+  letter-spacing: -2.5px;
   color: #ffffff;
 }
 
@@ -58,38 +69,41 @@
 }
 
 .menu-heading > p {
-  max-width: 330px;
+  max-width: 340px;
   margin: 0;
   font-family: "Inter", sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   line-height: 1.7;
-  color: #858585;
+  color: #8f8f8f;
 }
 
 /* =========================================================
    MENU NAVIGATION
+   Sticks just below the fixed site navbar.
 ========================================================= */
 
 .menu-nav {
   position: sticky;
-  top: 0;
+  top: 88px;
   z-index: 20;
 
   display: flex;
   align-items: center;
 
   width: 100%;
-  margin-bottom: 65px;
-  padding: 10px;
-  gap: 5px;
+  margin-bottom: 70px;
+  padding: 8px;
+  gap: 6px;
 
-  background: rgba(8, 8, 8, 0.94);
-  border: 1px solid #242424;
-  border-radius: 14px;
+  background: rgba(14, 14, 14, 0.9);
+  border: 1px solid #262626;
+  border-radius: 999px;
 
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 
   overflow-x: auto;
   scrollbar-width: none;
@@ -100,34 +114,33 @@
 }
 
 .menu-nav a {
-  flex: 0 0 auto;
+  flex: 1 0 auto;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  min-height: 42px;
+  min-height: 44px;
   padding: 0 22px;
 
-  border-radius: 9px;
+  border-radius: 999px;
 
   text-decoration: none;
 
   font-family: "Inter", sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 900;
-  letter-spacing: 1.3px;
+  letter-spacing: 1.4px;
 
   color: #8a8a8a;
 
   transition:
     background 0.25s ease,
-    color 0.25s ease,
-    transform 0.25s ease;
+    color 0.25s ease;
 }
 
 .menu-nav a:hover {
-  background: #191919;
+  background: #1b1b1b;
   color: #ffffff;
 }
 
@@ -141,8 +154,8 @@
 ========================================================= */
 
 .popular-deals {
-  margin-bottom: 100px;
-  overflow: hidden;
+  margin-bottom: 110px;
+  scroll-margin-top: 170px;
 }
 
 .section-heading {
@@ -158,18 +171,18 @@
   margin-bottom: 10px;
 
   font-family: "Inter", sans-serif;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 900;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.6px;
 
-  color: #666666;
+  color: #6d6d6d;
 }
 
 .section-heading h3 {
   margin: 0;
 
   font-family: "Archivo Black", sans-serif;
-  font-size: clamp(28px, 4vw, 44px);
+  font-size: clamp(30px, 4vw, 48px);
   line-height: 1;
   letter-spacing: -1.5px;
 
@@ -184,13 +197,13 @@
   margin: 0;
 
   font-family: "Inter", sans-serif;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 800;
-  line-height: 1.5;
-  letter-spacing: 1px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
   text-align: right;
 
-  color: #666666;
+  color: #6d6d6d;
 }
 
 /* =========================================================
@@ -201,19 +214,21 @@
   width: 100%;
   overflow: hidden;
 
+  padding: 6px 0 10px;
+
   mask-image: linear-gradient(
     to right,
     transparent,
-    black 4%,
-    black 96%,
+    black 5%,
+    black 95%,
     transparent
   );
 
   -webkit-mask-image: linear-gradient(
     to right,
     transparent,
-    black 4%,
-    black 96%,
+    black 5%,
+    black 95%,
     transparent
   );
 }
@@ -221,9 +236,9 @@
 .popular-track {
   display: flex;
   width: max-content;
-  gap: 16px;
+  gap: 18px;
 
-  animation: popularScroll 32s linear infinite;
+  animation: popularScroll 38s linear infinite;
 }
 
 .popular-marquee:hover .popular-track {
@@ -236,7 +251,8 @@
   }
 
   to {
-    transform: translateX(-50%);
+    /* half the track + half the gap = one full set */
+    transform: translateX(calc(-50% - 9px));
   }
 }
 
@@ -245,12 +261,12 @@
 ========================================================= */
 
 .popular-card {
-  flex: 0 0 235px;
+  flex: 0 0 270px;
 
   overflow: hidden;
 
   border: 1px solid #252525;
-  border-radius: 15px;
+  border-radius: 18px;
 
   background: #101010;
 
@@ -264,15 +280,11 @@
   transform: translateY(-4px);
 }
 
-/* =========================================================
-   POPULAR IMAGE
-========================================================= */
-
 .popular-card-image {
   position: relative;
 
   width: 100%;
-  height: 155px;
+  height: 180px;
 
   overflow: hidden;
 
@@ -297,40 +309,48 @@
 
 .popular-card-image span {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 12px;
+  left: 12px;
 
-  padding: 6px 9px;
+  padding: 6px 10px;
 
-  border-radius: 5px;
+  border-radius: 999px;
 
   background: #ff5a00;
   color: #080808;
 
   font-family: "Inter", sans-serif;
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 900;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
 }
-
-/* =========================================================
-   POPULAR CONTENT
-========================================================= */
 
 .popular-card-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  gap: 10px;
-  padding: 15px;
+  gap: 12px;
+  padding: 16px 18px 18px;
+}
+
+.popular-card-content small {
+  display: block;
+  margin-bottom: 5px;
+
+  font-family: "Inter", sans-serif;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1.3px;
+
+  color: #6d6d6d;
 }
 
 .popular-card-content h4 {
   margin: 0 0 6px;
 
   font-family: "Inter", sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 900;
 
   color: #ffffff;
@@ -338,7 +358,7 @@
 
 .popular-card-content strong {
   font-family: "Inter", sans-serif;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 800;
 
   color: #ff5a00;
@@ -347,8 +367,8 @@
 .popular-card-content button {
   flex-shrink: 0;
 
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
 
   border: 1px solid #333333;
   border-radius: 50%;
@@ -356,7 +376,7 @@
   background: transparent;
   color: #ffffff;
 
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1;
 
   cursor: pointer;
@@ -382,24 +402,26 @@
 
 .menu-category-section {
   margin-bottom: 110px;
-  scroll-margin-top: 90px;
+  scroll-margin-top: 170px;
 }
 
 /* =========================================================
    CATEGORY HEADING
+   Shown on small screens only. On desktop the
+   title sits inside the banner.
 ========================================================= */
 
 .category-heading {
-  display: flex;
+  display: none;
   align-items: center;
 
-  gap: 14px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .category-heading > span {
   font-family: "Inter", sans-serif;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 900;
   letter-spacing: 1px;
 
@@ -410,91 +432,139 @@
   margin: 0;
 
   font-family: "Archivo Black", sans-serif;
-  font-size: clamp(24px, 3vw, 34px);
+  font-size: 26px;
   line-height: 1;
   letter-spacing: -1px;
 
   color: #ffffff;
 }
 
+.category-heading small {
+  margin-left: auto;
+
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+
+  color: #6d6d6d;
+}
+
 /* =========================================================
    CATEGORY BANNER
-   IMPORTANT:
 
-   Desktop:
-   1200 x 270 ratio
-
-   Mobile:
-   SAME RATIO
-
-   Image will NOT be cropped.
+   Always the same 1200 x 270 ratio as the source PNG,
+   on every screen size, so the image is never cropped.
 ========================================================= */
 
 .category-banner {
   position: relative;
 
   width: 100%;
-
-  /*
-    Same ratio as 1200 x 270.
-    1200 / 270 = 4.444
-  */
   aspect-ratio: 1200 / 270;
 
-  margin-bottom: 28px;
+  margin-bottom: 26px;
 
   overflow: hidden;
 
   border: 1px solid #252525;
-  border-radius: 20px;
+  border-radius: 22px;
 
   background: #111111;
 
   isolation: isolate;
 }
 
-/* =========================================================
-   CATEGORY BANNER IMAGE
-
-   FULL IMAGE VISIBLE
-========================================================= */
-
 .category-banner img {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  /*
-    contain = complete PNG visible
-    no cropping
-  */
   object-fit: contain;
   object-position: center;
 
-  background: #111111;
-
-  transition: transform 0.45s ease;
+  transition: transform 0.6s ease;
 }
-
-/* =========================================================
-   BANNER HOVER
-========================================================= */
 
 .category-banner:hover img {
-  transform: scale(1.015);
+  transform: scale(1.02);
 }
 
 /* =========================================================
-   OLD OVERLAY / TEXT HIDDEN
+   BANNER OVERLAY + TEXT
 ========================================================= */
 
-.category-banner-overlay,
+.category-banner-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    rgba(8, 8, 8, 0.9) 0%,
+    rgba(8, 8, 8, 0.55) 28%,
+    rgba(8, 8, 8, 0) 50%
+  );
+}
+
 .category-banner-text {
-  display: none;
+  position: absolute;
+  top: 50%;
+  left: clamp(26px, 4vw, 52px);
+  z-index: 2;
+
+  max-width: 42%;
+
+  transform: translateY(-50%);
+}
+
+.category-banner-text span {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 11px;
+
+  border-radius: 999px;
+
+  background: #ff5a00;
+  color: #080808;
+
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+}
+
+.category-banner-text h3 {
+  margin: 0;
+
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(26px, 3.6vw, 48px);
+  line-height: 0.95;
+  letter-spacing: -1.5px;
+
+  color: #ffffff;
+}
+
+.category-banner-text p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 12px 0 0;
+
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.category-banner-text p i {
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #ff5a00;
 }
 
 /* =========================================================
@@ -506,7 +576,7 @@
 
   grid-template-columns: repeat(4, 1fr);
 
-  gap: 14px;
+  gap: 16px;
 }
 
 /* =========================================================
@@ -516,10 +586,13 @@
 .menu-card {
   min-width: 0;
 
+  display: flex;
+  flex-direction: column;
+
   overflow: hidden;
 
   border: 1px solid #252525;
-  border-radius: 13px;
+  border-radius: 16px;
 
   background: #101010;
 
@@ -532,10 +605,9 @@
 .menu-card:hover {
   border-color: #ff5a00;
 
-  transform: translateY(-3px);
+  transform: translateY(-4px);
 
-  box-shadow:
-    0 15px 35px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
 }
 
 /* =========================================================
@@ -543,12 +615,31 @@
 ========================================================= */
 
 .menu-card-image {
+  position: relative;
+
   width: 100%;
-  height: 150px;
+  aspect-ratio: 16 / 10;
 
   overflow: hidden;
 
   background: #151515;
+}
+
+.menu-card-image::after {
+  content: "";
+
+  position: absolute;
+  inset: auto 0 0;
+
+  height: 45%;
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    180deg,
+    rgba(16, 16, 16, 0) 0%,
+    rgba(16, 16, 16, 0.75) 100%
+  );
 }
 
 .menu-card-image img {
@@ -560,11 +651,35 @@
   object-fit: cover;
   object-position: center;
 
-  transition: transform 0.4s ease;
+  transition: transform 0.45s ease;
 }
 
 .menu-card:hover .menu-card-image img {
-  transform: scale(1.05);
+  transform: scale(1.06);
+}
+
+.menu-card-category {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  background: rgba(8, 8, 8, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  font-family: "Inter", sans-serif;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+
+  color: #ff5a00;
 }
 
 /* =========================================================
@@ -572,28 +687,21 @@
 ========================================================= */
 
 .menu-card-content {
-  padding: 14px;
-}
+  flex: 1;
 
-.menu-card-category {
-  display: block;
+  display: flex;
+  flex-direction: column;
 
-  margin-bottom: 7px;
-
-  font-family: "Inter", sans-serif;
-  font-size: 8px;
-  font-weight: 900;
-  letter-spacing: 1.2px;
-
-  color: #ff5a00;
+  padding: 16px;
 }
 
 .menu-card-content h4 {
   margin: 0 0 7px;
 
   font-family: "Inter", sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 900;
+  line-height: 1.25;
 
   color: #ffffff;
 }
@@ -601,14 +709,12 @@
 .menu-card-content p {
   margin: 0;
 
-  min-height: 38px;
-
   font-family: "Inter", sans-serif;
-  font-size: 10px;
+  font-size: 12.5px;
   font-weight: 500;
   line-height: 1.55;
 
-  color: #777777;
+  color: #7d7d7d;
 }
 
 /* =========================================================
@@ -622,47 +728,56 @@
 
   gap: 10px;
 
-  margin-top: 15px;
-  padding-top: 12px;
+  margin-top: auto;
+  padding-top: 14px;
+}
 
-  border-top: 1px solid #242424;
+.menu-card-content p + .menu-card-bottom {
+  margin-top: 16px;
+  border-top: 1px solid #222222;
 }
 
 .menu-card-bottom strong {
   font-family: "Inter", sans-serif;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 900;
 
-  color: #ff5a00;
+  color: #ffffff;
 }
 
 .menu-card-bottom button {
-  padding: 8px 11px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 
-  border: 1px solid #333333;
-  border-radius: 7px;
+  padding: 9px 13px;
+
+  border: 1px solid #ff5a00;
+  border-radius: 999px;
 
   background: transparent;
-  color: #ffffff;
+  color: #ff5a00;
 
   font-family: "Inter", sans-serif;
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 900;
-  letter-spacing: 0.8px;
+  letter-spacing: 1px;
 
   cursor: pointer;
 
   transition:
     background 0.2s ease,
-    border-color 0.2s ease,
     color 0.2s ease,
     transform 0.2s ease;
 }
 
+.menu-card-bottom button span {
+  font-size: 14px;
+  line-height: 1;
+}
+
 .menu-card-bottom button:hover {
   background: #ff5a00;
-  border-color: #ff5a00;
-
   color: #080808;
 
   transform: translateY(-1px);
@@ -676,25 +791,27 @@
   .menu-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
 
-  /*
-    DO NOT CHANGE BANNER HEIGHT.
-    Aspect ratio keeps the same proportions.
-  */
+/* =========================================================
+   NAVBAR HEIGHT 70PX
+========================================================= */
 
-  .category-banner {
-    aspect-ratio: 1200 / 270;
-    height: auto;
+@media (max-width: 850px) {
+  .menu-nav {
+    top: 80px;
   }
 }
 
 /* =========================================================
    TABLET / SMALL LAPTOP
+   Banner is too short for text here, so the title
+   moves back above it.
 ========================================================= */
 
 @media (max-width: 760px) {
   .menu-section {
-    padding: 70px 0;
+    padding: 75px 0 30px;
   }
 
   .menu-heading {
@@ -702,23 +819,117 @@
 
     flex-direction: column;
 
-    gap: 18px;
+    gap: 16px;
   }
 
   .menu-heading h2 {
-    font-size: 45px;
+    font-size: 48px;
   }
 
   .menu-heading > p {
     max-width: 450px;
+    font-size: 14px;
   }
 
   .menu-nav {
-    margin-bottom: 50px;
+    margin-bottom: 55px;
+  }
+
+  .menu-nav a {
+    flex-grow: 0;
   }
 
   .menu-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .popular-card {
+    flex-basis: 240px;
+  }
+
+  .popular-card-image {
+    height: 160px;
+  }
+
+  .category-heading {
+    display: flex;
+  }
+
+  .category-banner {
+    border-radius: 16px;
+  }
+
+  .category-banner-overlay,
+  .category-banner-text {
+    display: none;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .menu-nav {
+    top: 76px;
+  }
+}
+
+@media (max-width: 520px) {
+  .menu-section {
+    padding: 64px 0 20px;
+  }
+
+  .menu-heading {
+    margin-bottom: 28px;
+  }
+
+  .menu-eyebrow {
+    font-size: 10px;
+  }
+
+  .menu-heading h2 {
+    font-size: 40px;
+    letter-spacing: -1.5px;
+  }
+
+  .menu-heading > p {
+    font-size: 13px;
+  }
+
+  /* MENU NAV */
+
+  .menu-nav {
+    padding: 6px;
+    gap: 4px;
+    margin-bottom: 45px;
+  }
+
+  .menu-nav a {
+    min-height: 38px;
+    padding: 0 16px;
+    font-size: 10px;
+  }
+
+  /* POPULAR */
+
+  .popular-deals {
+    margin-bottom: 75px;
+    scroll-margin-top: 140px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .section-heading h3 {
+    font-size: 32px;
+  }
+
+  .section-heading > p {
+    text-align: left;
   }
 
   .popular-card {
@@ -729,195 +940,89 @@
     height: 145px;
   }
 
-  /*
-    SAME BANNER RATIO
-  */
+  .popular-card-content h4 {
+    font-size: 15px;
+  }
+
+  /* CATEGORY */
+
+  .menu-category-section {
+    margin-bottom: 70px;
+    scroll-margin-top: 140px;
+  }
+
+  .category-heading {
+    margin-bottom: 14px;
+  }
+
+  .category-heading h3 {
+    font-size: 22px;
+  }
 
   .category-banner {
-    width: 100%;
-    height: auto;
+    margin-bottom: 16px;
+    border-radius: 12px;
+  }
 
-    aspect-ratio: 1200 / 270;
+  /* MENU ITEMS */
 
-    border-radius: 18px;
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .menu-card {
+    border-radius: 13px;
+  }
+
+  .menu-card-category {
+    top: 7px;
+    left: 7px;
+    padding: 4px 7px;
+    font-size: 8px;
+  }
+
+  .menu-card-content {
+    padding: 12px;
+  }
+
+  .menu-card-content h4 {
+    font-size: 14px;
+  }
+
+  .menu-card-content p {
+    font-size: 11.5px;
+  }
+
+  .menu-card-content p + .menu-card-bottom {
+    margin-top: 12px;
+  }
+
+  .menu-card-bottom {
+    padding-top: 11px;
+  }
+
+  .menu-card-bottom strong {
+    font-size: 13px;
+  }
+
+  .menu-card-bottom button {
+    padding: 7px 10px;
+    font-size: 9px;
   }
 }
 
 /* =========================================================
-   MOBILE
+   NAVBAR HEIGHT 63PX
 ========================================================= */
 
-@media (max-width: 520px) {
-  .menu-section {
-    padding: 60px 0;
-  }
-
-  .menu-container {
-    width: 92%;
-  }
-
-  .menu-heading {
-    margin-bottom: 30px;
-  }
-
-  .menu-eyebrow {
-    font-size: 9px;
-  }
-
-  .menu-heading h2 {
-    font-size: 38px;
-    letter-spacing: -1.5px;
-  }
-
-  .menu-heading > p {
-    font-size: 12px;
-  }
-
-  /* =======================================================
-     MENU NAV
-  ======================================================= */
-
+@media (max-width: 380px) {
   .menu-nav {
-    padding: 7px;
-
-    gap: 3px;
-
-    border-radius: 11px;
-
-    margin-bottom: 45px;
-  }
-
-  .menu-nav a {
-    min-height: 38px;
-
-    padding: 0 15px;
-
-    font-size: 8px;
-  }
-
-  /* =======================================================
-     POPULAR
-  ======================================================= */
-
-  .popular-deals {
-    margin-bottom: 75px;
-  }
-
-  .section-heading {
-    align-items: flex-start;
-
-    flex-direction: column;
-
-    gap: 12px;
-  }
-
-  .section-heading h3 {
-    font-size: 30px;
-  }
-
-  .section-heading > p {
-    text-align: left;
-  }
-
-  .popular-card {
-    flex-basis: 205px;
-  }
-
-  .popular-card-image {
-    height: 135px;
-  }
-
-  /* =======================================================
-     CATEGORY
-     
-     IMPORTANT:
-     Banner remains SAME 1200:270 ratio.
-     
-     It will become approximately:
-     331px x 74.5px
-     when container is ~331px wide.
-  ======================================================= */
-
-  .menu-category-section {
-    margin-bottom: 75px;
-
-    scroll-margin-top: 75px;
-  }
-
-  .category-heading {
-    margin-bottom: 15px;
-  }
-
-  .category-heading h3 {
-    font-size: 23px;
-  }
-
-  .category-banner {
-    width: 100%;
-
-    height: auto;
-
-    aspect-ratio: 1200 / 270;
-
-    margin-bottom: 18px;
-
-    border-radius: 12px;
-  }
-
-  .category-banner img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain;
-    object-position: center;
-  }
-
-  /* =======================================================
-     MENU ITEMS
-  ======================================================= */
-
-  .menu-grid {
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 9px;
-  }
-
-  .menu-card {
-    border-radius: 10px;
-  }
-
-  .menu-card-image {
-    height: 115px;
-  }
-
-  .menu-card-content {
-    padding: 11px;
-  }
-
-  .menu-card-content h4 {
-    font-size: 12px;
-  }
-
-  .menu-card-content p {
-    min-height: 47px;
-
-    font-size: 9px;
+    top: 72px;
   }
 
   .menu-card-bottom {
-    margin-top: 11px;
-
-    padding-top: 10px;
-  }
-
-  .menu-card-bottom strong {
-    font-size: 10px;
-  }
-
-  .menu-card-bottom button {
-    padding: 7px 8px;
-
-    font-size: 7px;
+    flex-wrap: wrap;
   }
 }
 
@@ -925,32 +1030,13 @@
    VERY SMALL MOBILE
 ========================================================= */
 
-@media (max-width: 360px) {
+@media (max-width: 340px) {
   .menu-grid {
     grid-template-columns: 1fr;
   }
 
-  .menu-card-image {
-    height: 170px;
-  }
-
   .menu-heading h2 {
     font-size: 34px;
-  }
-
-  /*
-    KEEP BANNER RATIO.
-    NEVER SET A FIXED MOBILE HEIGHT.
-  */
-
-  .category-banner {
-    width: 100%;
-
-    height: auto;
-
-    aspect-ratio: 1200 / 270;
-
-    border-radius: 10px;
   }
 }
 
@@ -961,6 +1047,10 @@
 @media (prefers-reduced-motion: reduce) {
   .popular-track {
     animation: none;
+  }
+
+  .popular-marquee {
+    overflow-x: auto;
   }
 
   .popular-card,

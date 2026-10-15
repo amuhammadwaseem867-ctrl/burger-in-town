@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import FoodImage from "./FoodImage";
 import "./CartDrawer.css";
 
 export default function CartDrawer({
@@ -185,8 +186,9 @@ export default function CartDrawer({
 
                   <div className="cart-item-image">
 
-                    <img
+                    <FoodImage
                       src={item.image}
+                      fallback={item.fallback}
                       alt={item.name}
                     />
 

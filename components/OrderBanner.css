@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+/* =========================================================
+   ORDER BANNER
+========================================================= */
+
+.order-banner {
+  width: 100%;
+
+  padding: 30px 0 100px;
+
+  background: #080808;
+  color: #ffffff;
+}
+
+.order-banner-container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.order-banner-card {
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 420px;
+
+  border-radius: 28px;
+
+  background:
+    radial-gradient(
+      circle at 0% 0%,
+      #ff7a2e 0%,
+      #ff5a00 45%,
+      #d94a00 100%
+    );
+
+  isolation: isolate;
+}
+
+/* subtle grain lines */
+.order-banner-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  pointer-events: none;
+
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0.05) 0 2px,
+      transparent 2px 14px
+    );
+}
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.order-banner-media {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 50%;
+
+  z-index: -1;
+
+  overflow: hidden;
+
+  border-radius: 28px 0 0 28px;
+
+  background: #080808;
+}
+
+.order-banner-media img {
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.8s ease;
+}
+
+.order-banner-card:hover .order-banner-media img {
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.order-banner-content {
+  width: 50%;
+
+  padding: 54px;
+}
+
+.order-banner-kicker {
+  display: inline-flex;
+
+  margin-bottom: 18px;
+  padding: 7px 12px;
+
+  border-radius: 999px;
+
+  background: #080808;
+  color: #ff5a00;
+
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.6px;
+}
+
+.order-banner-content h2 {
+  margin: 0;
+
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(36px, 4.4vw, 58px);
+  line-height: 0.92;
+  letter-spacing: -2px;
+
+  color: #080808;
+}
+
+.order-banner-content h2 span {
+  display: block;
+  color: #ffffff;
+}
+
+.order-banner-content p {
+  max-width: 380px;
+
+  margin: 20px 0 28px;
+
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.65;
+
+  color: rgba(8, 8, 8, 0.78);
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.order-banner-actions {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+.order-banner-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  min-height: 52px;
+  padding: 0 22px;
+
+  border: 1.5px solid #080808;
+  border-radius: 999px;
+
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+
+  text-decoration: none;
+
+  color: #080808;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.order-banner-button b {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.order-banner-button:hover {
+  background: #080808;
+  color: #ffffff;
+
+  transform: translateY(-2px);
+}
+
+.order-banner-button-primary {
+  background: #080808;
+  color: #ffffff;
+}
+
+.order-banner-button-primary:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #080808;
+}
+
+/* =========================================================
+   TABLET / MOBILE
+   Image on top, text below.
+========================================================= */
+
+@media (max-width: 760px) {
+  .order-banner {
+    padding: 20px 0 80px;
+  }
+
+  .order-banner-card {
+    flex-direction: column;
+    align-items: stretch;
+
+    min-height: 0;
+
+    border-radius: 22px;
+  }
+
+  .order-banner-media {
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    border-radius: 0;
+  }
+
+  .order-banner-content {
+    width: 100%;
+
+    padding: 30px 24px 32px;
+  }
+
+  .order-banner-content h2 {
+    font-size: 38px;
+    letter-spacing: -1.5px;
+  }
+
+  .order-banner-content p {
+    font-size: 14px;
+  }
+
+  .order-banner-button {
+    flex: 1 1 100%;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .order-banner-media img,
+  .order-banner-button {
+    transition: none;
+  }
+}
