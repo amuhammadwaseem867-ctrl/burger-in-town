@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&display=swap");
 
-/* =========================================================
-   MENU SECTION
-========================================================= */
+/* Menu section */
 
 .menu-section {
   width: 100%;
@@ -14,18 +12,14 @@
   overflow-x: clip;
 }
 
-/* =========================================================
-   MASTER CONTAINER
-========================================================= */
+/* Master container */
 
 .menu-container {
   width: min(1200px, 92%);
   margin: 0 auto;
 }
 
-/* =========================================================
-   MENU HEADER
-========================================================= */
+/* Menu header */
 
 .menu-heading {
   display: flex;
@@ -78,10 +72,8 @@
   color: #8f8f8f;
 }
 
-/* =========================================================
-   MENU NAVIGATION
-   Sticks just below the fixed site navbar.
-========================================================= */
+/* Menu navigation
+   Sticks just below the fixed site navbar. */
 
 .menu-nav {
   position: sticky;
@@ -149,9 +141,7 @@
   color: #080808;
 }
 
-/* =========================================================
-   POPULAR DEALS
-========================================================= */
+/* Popular deals */
 
 .popular-deals {
   margin-bottom: 110px;
@@ -206,9 +196,7 @@
   color: #6d6d6d;
 }
 
-/* =========================================================
-   POPULAR MARQUEE
-========================================================= */
+/* Popular marquee */
 
 .popular-marquee {
   width: 100%;
@@ -256,9 +244,7 @@
   }
 }
 
-/* =========================================================
-   POPULAR CARD
-========================================================= */
+/* Popular card */
 
 .popular-card {
   flex: 0 0 270px;
@@ -396,20 +382,16 @@
   transform: rotate(90deg);
 }
 
-/* =========================================================
-   CATEGORY SECTION
-========================================================= */
+/* Category section */
 
 .menu-category-section {
   margin-bottom: 110px;
   scroll-margin-top: 170px;
 }
 
-/* =========================================================
-   CATEGORY HEADING
+/* Category heading
    Shown on small screens only. On desktop the
-   title sits inside the banner.
-========================================================= */
+   title sits inside the banner. */
 
 .category-heading {
   display: none;
@@ -450,12 +432,9 @@
   color: #6d6d6d;
 }
 
-/* =========================================================
-   CATEGORY BANNER
-
+/* Category banner
    Always the same 1200 x 270 ratio as the source PNG,
-   on every screen size, so the image is never cropped.
-========================================================= */
+   on every screen size, so the image is never cropped. */
 
 .category-banner {
   position: relative;
@@ -486,9 +465,7 @@
   transform: scale(1.02);
 }
 
-/* =========================================================
-   BANNER OVERLAY + TEXT
-========================================================= */
+/* Banner overlay + text */
 
 .category-banner-overlay {
   position: absolute;
@@ -567,9 +544,7 @@
   background: #ff5a00;
 }
 
-/* =========================================================
-   MENU GRID
-========================================================= */
+/* Menu grid */
 
 .menu-grid {
   display: grid;
@@ -579,9 +554,7 @@
   gap: 16px;
 }
 
-/* =========================================================
-   MENU CARD
-========================================================= */
+/* Menu card */
 
 .menu-card {
   min-width: 0;
@@ -610,9 +583,7 @@
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* =========================================================
-   MENU CARD IMAGE
-========================================================= */
+/* Menu card image */
 
 .menu-card-image {
   position: relative;
@@ -682,9 +653,7 @@
   color: #ff5a00;
 }
 
-/* =========================================================
-   MENU CARD CONTENT
-========================================================= */
+/* Menu card content */
 
 .menu-card-content {
   flex: 1;
@@ -717,9 +686,7 @@
   color: #7d7d7d;
 }
 
-/* =========================================================
-   CARD BOTTOM
-========================================================= */
+/* Card bottom */
 
 .menu-card-bottom {
   display: flex;
@@ -783,9 +750,7 @@
   transform: translateY(-1px);
 }
 
-/* =========================================================
-   TABLET
-========================================================= */
+/* Tablet */
 
 @media (max-width: 1000px) {
   .menu-grid {
@@ -793,9 +758,7 @@
   }
 }
 
-/* =========================================================
-   NAVBAR HEIGHT 70PX
-========================================================= */
+/* Navbar height 70px */
 
 @media (max-width: 850px) {
   .menu-nav {
@@ -803,11 +766,9 @@
   }
 }
 
-/* =========================================================
-   TABLET / SMALL LAPTOP
+/* Tablet / small laptop
    Banner is too short for text here, so the title
-   moves back above it.
-========================================================= */
+   moves back above it. */
 
 @media (max-width: 760px) {
   .menu-section {
@@ -865,9 +826,7 @@
   }
 }
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* Mobile */
 
 @media (max-width: 600px) {
   .menu-nav {
@@ -1012,9 +971,7 @@
   }
 }
 
-/* =========================================================
-   NAVBAR HEIGHT 63PX
-========================================================= */
+/* Navbar height 63px */
 
 @media (max-width: 380px) {
   .menu-nav {
@@ -1026,9 +983,7 @@
   }
 }
 
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
+/* Very small mobile */
 
 @media (max-width: 340px) {
   .menu-grid {
@@ -1040,9 +995,7 @@
   }
 }
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
+/* Reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
   .popular-track {

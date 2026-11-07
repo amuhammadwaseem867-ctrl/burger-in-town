@@ -1,9 +1,7 @@
 import "./Ticker.css";
 
-/* =========================================================
-   TICKER BANNER
-   Scrolling orange strip between the hero and specials.
-========================================================= */
+/* Ticker banner
+   Scrolling orange strip between the hero and specials. */
 
 const words = [
   "SMASHED BEEF BURGERS",

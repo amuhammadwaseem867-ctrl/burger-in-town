@@ -20,9 +20,7 @@ import WhatsAppButton from "../components/WhatsAppButton";
 
 export default function Home() {
 
-  /* =====================================================
-     CART STATE
-  ===================================================== */
+  /* Cart state */
 
   const [cart, setCart] = useState([]);
 
@@ -32,9 +30,7 @@ export default function Home() {
     useState(false);
 
 
-  /* =====================================================
-     ADD TO CART
-  ===================================================== */
+  /* Add to cart */
 
   const handleAddToCart = (item) => {
 
@@ -71,9 +67,7 @@ export default function Home() {
   };
 
 
-  /* =====================================================
-     INCREASE QUANTITY
-  ===================================================== */
+  /* Increase quantity */
 
   const handleIncrease = (id) => {
 
@@ -91,9 +85,7 @@ export default function Home() {
   };
 
 
-  /* =====================================================
-     DECREASE QUANTITY
-  ===================================================== */
+  /* Decrease quantity */
 
   const handleDecrease = (id) => {
 
@@ -113,9 +105,7 @@ export default function Home() {
   };
 
 
-  /* =====================================================
-     REMOVE ITEM
-  ===================================================== */
+  /* Remove item */
 
   const handleRemove = (id) => {
 
@@ -128,27 +118,21 @@ export default function Home() {
   };
 
 
-  /* =====================================================
-     OPEN CART
-  ===================================================== */
+  /* Open cart */
 
   const openCart = () => {
     setIsCartOpen(true);
   };
 
 
-  /* =====================================================
-     CLOSE CART
-  ===================================================== */
+  /* Close cart */
 
   const closeCart = () => {
     setIsCartOpen(false);
   };
 
 
-  /* =====================================================
-     CHECKOUT
-  ===================================================== */
+  /* Checkout */
 
   const handleCheckout = () => {
 
@@ -165,18 +149,14 @@ export default function Home() {
   };
 
 
-  /* =====================================================
-     CLOSE CHECKOUT
-  ===================================================== */
+  /* Close checkout */
 
   const closeCheckout = () => {
     setIsCheckoutOpen(false);
   };
 
 
-  /* =====================================================
-     PAGE
-  ===================================================== */
+  /* Page */
 
   return (
 

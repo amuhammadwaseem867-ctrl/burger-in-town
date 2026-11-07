@@ -1,10 +1,8 @@
 import Image from "next/image";
 import "./OrderBanner.css";
 
-/* =========================================================
-   ORDER BANNER
-   Call-to-action banner above the footer.
-========================================================= */
+/* Order banner
+   Call-to-action banner above the footer. */
 
 const whatsappUrl = `https://wa.me/923068126737?text=${encodeURIComponent(
   "Hi Burger In Town! I would like to place an order."

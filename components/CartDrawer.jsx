@@ -23,9 +23,7 @@ export default function CartDrawer({
     0
   );
 
-  /* =====================================================
-     LOCK PAGE SCROLL
-  ===================================================== */
+  /* Lock page scroll */
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -36,9 +34,7 @@ export default function CartDrawer({
   }, [isOpen]);
 
 
-  /* =====================================================
-     ESCAPE KEY
-  ===================================================== */
+  /* Escape key */
 
   useEffect(() => {
     const handleEscape = (event) => {
@@ -127,9 +123,7 @@ export default function CartDrawer({
 
           {cart.length === 0 ? (
 
-            /* =================================================
-                EMPTY CART
-            ================================================= */
+            /* Empty cart */
 
             <div className="cart-empty">
 
@@ -169,9 +163,7 @@ export default function CartDrawer({
 
           ) : (
 
-            /* =================================================
-                CART ITEMS
-            ================================================= */
+            /* Cart items */
 
             <div className="cart-list">
 

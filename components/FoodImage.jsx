@@ -2,13 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 
-/* =========================================================
-   FOOD IMAGE
-
+/* Food image
    Plain <img> that swaps to a local fallback photo when
    the remote image is missing or fails to load, so a menu
-   card never shows a broken image.
-========================================================= */
+   card never shows a broken image. */
 
 export default function FoodImage({
   src,

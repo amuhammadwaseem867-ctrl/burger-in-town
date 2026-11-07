@@ -20,9 +20,7 @@ export default function Checkout({
     0
   );
 
-  /* =====================================================
-     LOCK PAGE SCROLL
-  ===================================================== */
+  /* Lock page scroll */
 
   useEffect(() => {
     if (isOpen) {
@@ -37,9 +35,7 @@ export default function Checkout({
   }, [isOpen]);
 
 
-  /* =====================================================
-     ESCAPE KEY
-  ===================================================== */
+  /* Escape key */
 
   useEffect(() => {
     const handleEscape = (event) => {
@@ -56,9 +52,7 @@ export default function Checkout({
   }, [isOpen, onClose]);
 
 
-  /* =====================================================
-     FORM CHANGE
-  ===================================================== */
+  /* Form change */
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -70,9 +64,7 @@ export default function Checkout({
   };
 
 
-  /* =====================================================
-     WHATSAPP ORDER
-  ===================================================== */
+  /* WhatsApp order */
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -125,9 +117,7 @@ Thank you!`;
   };
 
 
-  /* =====================================================
-     CLOSED
-  ===================================================== */
+  /* Closed */
 
   if (!isOpen) {
     return null;
