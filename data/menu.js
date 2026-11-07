@@ -1,11 +1,8 @@
-/* =========================================================
-   MENU DATA
-
+/* Menu data
    Single source of truth for every menu item.
    Each section has:
    - banner:   wide 1200 x 270 category banner
-   - fallback: local photo shown if an item image fails
-========================================================= */
+   - fallback: local photo shown if an item image fails */
 
 const sections = [
   {
@@ -519,12 +516,9 @@ const sections = [
   },
 ];
 
-/* =========================================================
-   EXPORTS
-
+/* Exports
    Every item carries its category and fallback image,
-   so the cart can show the same picture as the menu.
-========================================================= */
+   so the cart can show the same picture as the menu. */
 
 export const menuSections = sections.map((section) => ({
   ...section,
@@ -541,19 +535,14 @@ export const findMenuItem = (id) =>
   allItems.find((item) => item.id === id);
 
 
-/* =========================================================
-   POPULAR DEALS
-
+/* Popular deals
    Same items as the menu (same ids), so adding one from
-   here or from its section increases a single cart line.
-========================================================= */
+   here or from its section increases a single cart line. */
 
 export const popularDeals = [1, 2, 11, 22, 4, 12].map(findMenuItem);
 
 
-/* =========================================================
-   SECTION SUMMARY
-========================================================= */
+/* Section summary */
 
 export const getStartingPrice = (section) =>
   Math.min(...section.items.map((item) => item.price));

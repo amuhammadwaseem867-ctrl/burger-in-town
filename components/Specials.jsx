@@ -11,9 +11,7 @@ import {
 import "./Specials.css";
 
 
-/* =========================================================
-   SPECIALS CONTENT
-========================================================= */
+/* Specials content */
 
 const featured = findMenuItem(1);
 
@@ -42,9 +40,7 @@ const promos = [
 });
 
 
-/* =========================================================
-   SPECIALS BANNER
-========================================================= */
+/* Specials banner */
 
 export default function Specials({ onAddToCart }) {
   return (

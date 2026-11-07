@@ -13,9 +13,7 @@ import {
 import "./Menu.css";
 
 
-/* =========================================================
-   NAV TARGETS
-========================================================= */
+/* Nav targets */
 
 const navSections = [
   { id: "popular", navName: "DEALS" },
@@ -23,9 +21,7 @@ const navSections = [
 ];
 
 
-/* =========================================================
-   MENU COMPONENT
-========================================================= */
+/* Menu component */
 
 export default function Menu({ onAddToCart }) {
 
@@ -34,11 +30,9 @@ export default function Menu({ onAddToCart }) {
   const [activeId, setActiveId] = useState("popular");
 
 
-  /* =====================================================
-     SCROLL SPY
+  /* Scroll spy
      Highlights the section crossing the middle of
-     the screen.
-  ===================================================== */
+     the screen. */
 
   useEffect(() => {
 
@@ -64,9 +58,7 @@ export default function Menu({ onAddToCart }) {
   }, []);
 
 
-  /* =====================================================
-     KEEP ACTIVE TAB VISIBLE (MOBILE)
-  ===================================================== */
+  /* Keep active tab visible (mobile) */
 
   useEffect(() => {
 
